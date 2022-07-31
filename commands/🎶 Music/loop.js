@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["s"],
   category: "🎶 Music",
   permissions: " ",
-  description: "lopp Playing Song",
+  description: "Lặp lại bài hát",
   usage: "",
   /**
    * @param {Client} client
@@ -25,7 +25,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join Voice Channel To Loop Song`
+            `Bạn cần vào kênh voice trước để lặp bài hát`
           )
         )
         .then((msg) => {
@@ -38,7 +38,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Nothing Playing In Voice Channel To Loop`
+            `Không có gì đang phát trong kênh voice để lặp lại`
           )
         )
         .then((msg) => {
@@ -54,7 +54,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+            `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
           )
         )
         .then((msg) => {
@@ -66,8 +66,8 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            " Please add the Loop style Options wanna change",
-            `Valid Options:\n\n\`0\`   /   \`1\`   /   \`2\`\n\`off\` / \`song\` / \`queue\``
+            "Xin hãy cho biết kiểu lặp bài hát bạn muốn",
+            `Những tùy chọn hợp lệ:\n\n\`0\`   /   \`1\`   /   \`2\`\n\`tắt\` / \`bài hát\` / \`hàng chờ\``
           )
         )
         .then((msg) => {
@@ -92,9 +92,9 @@ module.exports = {
                 .setColor(ee.color).setDescription(
             "Repeat mode set to:",
             `${args[0]
-              .replace("0", "OFF")
-              .replace("1", "Repeat song")
-              .replace("2", "Repeat Queue")}`
+              .replace("0", "Tắt")
+              .replace("1", "Lặp bài hát")
+              .replace("2", "Lặp hàng chờ")}`
           )
         )
         .then((msg) => {
@@ -105,7 +105,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please use a number between **0** and **2**   |   *(0: disabled, 1: Repeat a song, 2: Repeat all the queue)*`
+            `Hãy dùng một số trong khoảng **0** và **2**   |   *(0: tắt, 1: lặp bài hát hiện tại, 2: lặp toàn bộ hàng chờ)*`
           )
         )
         .then((msg) => {
@@ -116,7 +116,7 @@ module.exports = {
       .send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Song Looped By <@${message.author.id}>`
+          `Bài hát được lặp bởi <@${message.author.id}>`
         )
       )
       .then((msg) => {

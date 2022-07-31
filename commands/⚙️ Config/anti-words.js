@@ -10,7 +10,7 @@ module.exports = {
     category: '⚙️ Config',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: "Setup Anti-Word in Server",
+    description: "Cài đặt bộ chống từ trong máy chủ",
     usage: "antiword",
     /** 
      * @param {Client} client 
@@ -19,7 +19,7 @@ module.exports = {
      */
     run: async (client, message, args, prefix) => {
         if (!args[0]) {
-            return message.channel.send(`Usage: \`(prefix)antiwords <on|off>\``)
+            return message.channel.send(`Cách dùng: \`(prefix)antiwords <on|off>\``)
         }
         if (args[0] === "On" || args[0] === "on") {
             const data = await antiwordsSchema.findOne({
@@ -31,14 +31,14 @@ module.exports = {
                     GuildID: message.guild.id,
                 });
 
-                message.channel.send(`**Antiwords is now active!**`);
+                message.channel.send(`**Bộ chống từ đang hoạt động!**`);
 
                 let newData = new antiwordsSchema({
                     GuildID: message.guild.id,
                 });
                 newData.save();
             } else if (!data) {
-                message.channel.send(`**Antiwords is now active**`);
+                message.channel.send(`**Bộ chống từ đã được kích hoạt!**`);
 
                 let newData = new antiwordsSchema({
                     GuildID: message.guild.id,
@@ -55,10 +55,10 @@ module.exports = {
                     GuildID: message.guild.id,
                 });
 
-                return message.channel.send(`**Antiwords has been turned off!**`);
+                return message.channel.send(`**Bộ chống từ đã được vô hiệu hóa!**`);
 
             } else if (!data2) {
-                return message.channel.send(`**Antiwords Isn't Even Setup Bot!**`);
+                return message.channel.send(`**Bộ chống từ chưa được thiết lập!**`);
             }
         }
     }

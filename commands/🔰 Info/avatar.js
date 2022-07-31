@@ -8,7 +8,7 @@ module.exports = {
     category: '🔰 Info',
     memberpermissions: [],
     cooldown: 5,
-    description: 'Show User Avatar',
+    description: 'Hiển thị avatar của người dùng',
     usage: 'avatar [@USER] [global]',
     /** 
      * @param {Client} client 

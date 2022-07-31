@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Ban a User Outside of Guild',
+    description: 'Cấm người dùng bên ngoài máy chủ',
     usage: '[COMMAND]',
     /** 
      * @param {Client} client 
@@ -23,7 +23,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`Please Give a User ID **\`${prefix}hackban <@userid> <reason>\`**`)
+                    .setDescription(`Hãy cho tôi biết ID người dùng! Cách dùng là **\`${prefix}hackban <@userid> <lý do>\`**`)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -32,7 +32,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`Please Give a User ID **User ID not alphabet only Numbers**`)
+                    .setDescription(`Hãy cho tôi biết ID người dùng hợp lệ **ID người dùng chỉ có số, không có chữ cái**`)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -42,7 +42,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\` Please Don't Ban me 😢😢😢 \`\``)
+                    .setDescription(`\`\` Xin đừng cấm tôi 😢😢😢 \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -51,7 +51,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\` You cant Ban YourSelf 😂😁😁 \`\``)
+                    .setDescription(`\`\` Bạn không thể tự cấm chính mình 😂😁😁 \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -65,9 +65,9 @@ module.exports = {
                     user.send(
                         new MessageEmbed()
                             .setColor(ee.color)
-                            .setDescription(`You Hack Banned From ${message.guild.name}`)
-                            .addField(`> Reason :- \`\`${reason != " " ? reason : - "-"}\`\``, true)
-                            .addField(`> Banned By <@${message.author.id}>`, true)
+                            .setDescription(`Bạn đã bị cấm từ ${message.guild.name}`)
+                            .addField(`> Lý do :- \`\`${reason != " " ? reason : - "-"}\`\``, true)
+                            .addField(`> Bị cấm bởi <@${message.author.id}>`, true)
                             .setFooter(ee.footertext)
                     )
                 })
@@ -75,9 +75,9 @@ module.exports = {
                 message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`<@${user}> SuccesFully Banned From ${message.guild.name}`)
-                        .addField(`> Reason :- \`\`${reason != " " ? reason : - "-"}\`\``, true)
-                        .addField(`> Banned By <@${message.author.id}>`, true)
+                        .setDescription(`<@${user}> đã bị cấm thành công từ ${message.guild.name}`)
+                        .addField(`> Lý do :- \`\`${reason != " " ? reason : - "-"}\`\``, true)
+                        .addField(`> Bị cấm bởi <@${message.author.id}>`, true)
                         .setFooter(ee.footertext)
                 ).then(msg => msg.delete({ timeout: 5000 }))
             }

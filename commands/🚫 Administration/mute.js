@@ -9,8 +9,8 @@ module.exports = {
   aliases: ["chup"],
   category: '🚫 Administration',
   memberpermissions: ['MUTE_MEMBERS'],
-  description: 'Mutes a User for a specific Time!',
-  useage: 'mute @User <Time+Format(e.g: 10m)> [REASON]',
+  description: 'Tắt tiếng thành viên trong một thời gian nhất định!',
+  useage: 'mute @User <Time+Format(e.g: 10m)> [lý do]',
   /**
    * @param {Client} client
    * @param {Message} message
@@ -25,7 +25,7 @@ module.exports = {
             .setColor(ee.color)
 
             .setDescription(
-              "**You Dont Have The Permissions To Mute Users! - [ADMINISTRATOR]**"
+              "**Bạn chưa có đủ quyền để tắt tiếng thành viên! - [ADMINISTRATOR]**"
             )
             .setFooter(ee.footertext)
         )
@@ -43,7 +43,7 @@ module.exports = {
             .setColor(ee.color)
 
             .setDescription(
-              " Please Mention a USER to Mute ! Usage: `mute @User <Time+Format(e.g: 10m)> [REASON]` example: `mute @User 10m He/She is Abusing!`"
+              "Hãy nhắc tới ai đó để tắt tiếng! Cách dùng: `mute @User <Time+Format(e.g: 10m)> [LÝ DO]` Ví dụ như là: `mute @User 10m He/She is Abusing!`"
             )
             .setFooter(ee.footertext)
         )
@@ -64,7 +64,7 @@ module.exports = {
             .setColor(ee.color)
 
             .setDescription(
-              ":x: I cannot mute this Member, because He/She is higher/Equal to Your Role Position!"
+              ":x: Tôi không thể tắt tiếng thành viên này bởi người đó có vai trò bằng hoặc cao hơn bạn!"
             )
             .setFooter(ee.footertext)
         )
@@ -82,7 +82,7 @@ module.exports = {
             .setColor(ee.color)
 
             .setDescription(
-              "**I need the permission, to Manage Roles aka give roles**"
+              "**Tôi cần quyền, như là Quẩn Lý Vai Trò để thêm vai trò**"
             )
             .setFooter(ee.footertext)
         )
@@ -100,7 +100,7 @@ module.exports = {
             .setColor(ee.color)
 
             .setDescription(
-              "**please add a TIME! Usage: `mute @User ``<Time+Format(e.g: 10m)>`` [REASON]` example: `mute @User 10m He/She is Abusing`**"
+              "**Xin hãy thêm thời gian! Cách dùng: `mute @User ``<Time+Format(e.g: 10m)>`` [LÝ DO]` Ví dụ như là: `mute @User 10m He/She is Abusing`**"
             )
             .setFooter(ee.footertext)
         )
@@ -118,7 +118,7 @@ module.exports = {
 
     let mutedrole = false;
     for (let i = 0; i < allguildroles.length; i++) {
-      if (allguildroles[i].name.toLowerCase().includes("muted")) {
+      if (allguildroles[i].name.toLowerCase().includes("Muted")) {
         mutedrole = allguildroles[i];
         break;
       }
@@ -133,7 +133,7 @@ module.exports = {
               .setColor(ee.color)
 
               .setDescription(
-                "**I need the permission, to Manage Roles aka give roles**"
+                "**Tôi cần quyền, như là Quẩn Lý Vai Trò để thêm vai trò**"
               )
               .setFooter(
                 client.user.displayAvatarURL({ dynamic: true }),
@@ -155,7 +155,7 @@ module.exports = {
             position: Number(highestrolepos) - 1, //muted role under highest Bot Role!
             //permissions: ["SEND_MESSAGES"]
           },
-          reason: "This role got created, to mute Members!",
+          reason: "Vai trog này đã được tạo để tắt tiếng thành viên!",
         })
         .catch((e) => {
           console.log(e);
@@ -165,7 +165,7 @@ module.exports = {
                 .setColor(ee.color)
                 .setColor(ee.color)
 
-                .setDescription("**I COULD NOT CREATE A ROLE, sorry**")
+                .setDescription("**TÔI KHÔNG THỂ TẠO VAI TRÒ, xin lỗi**")
                 .setFooter(
                   client.user.displayAvatarURL({ dynamic: true }),
                   ee.footertext
@@ -185,7 +185,7 @@ module.exports = {
             .setColor(ee.color)
 
             .setDescription(
-              "**:x: I cannot access the Role, because it's above me!**"
+              "**:x: Tôi không thể truy cập vai trò bởi vì nó ở vị trí cao hơn tôi!**"
             )
             .setFooter(ee.footertext)
         )
@@ -205,7 +205,7 @@ module.exports = {
             .setColor(ee.color)
 
             .setDescription(
-              "**ERROR, please add a TIME! Usage: `mute @User <Time+Format(e.g: 10m)> [REASON]` example: `mute @User 10m He is doing bad stuff!`**"
+              "**Có lỗi xảy ra, xin vui lòng thêm thời gian! Cách dùng: `mute @User <Time+Format(e.g: 10m)> [LÝ DO]` Ví dụ như là: `mute @User 10m He is doing bad stuff!`**"
             )
             .setFooter(ee.footertext)
         )
@@ -221,7 +221,7 @@ module.exports = {
             .setColor(ee.color)
 
             .setDescription(
-              "**ERROR, please add a TIME! Usage: `mute @User <Time+Format(e.g: 10m)> [REASON]` example: `mute @User 10m He is doing bad stuff!`**"
+              "**Có lỗi xảy ra, xin vui lòng thêm thời gian! Cách dùng: `mute @User <Time+Format(e.g: 10m)> [LÝ DO]` Ví dụ như là: `mute @User 10m He is doing bad stuff!`**"
             )
             .setFooter(ee.footertext)
         )
@@ -265,7 +265,7 @@ module.exports = {
             .setColor(ee.color)
             .setColor(ee.color)
 
-            .setDescription("**Something went wrong!**")
+            .setDescription("**Đã có lỗi xảy ra!**")
             .setFooter(ee.footertext)
         )
         .then((msg) => {
@@ -278,7 +278,7 @@ module.exports = {
     let embed = new MessageEmbed()
       .setColor(ee.color)
       .setColor(ee.color)
-      .setTitle(`Muted: \`${member.user.tag}\``)
+      .setTitle(`Đã tắt tiếng: \`${member.user.tag}\``)
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
       .setFooter(
         `By: ${message.author.tag}`,
@@ -287,20 +287,20 @@ module.exports = {
       .setDescription(
         `He/you is now muted for \`${ms(mutetime, {
           long: true,
-        })} Tell Moderator To Unmute you..\`${reason ? `\n\n**REASON**\n> ${reason.substr(0, 1800)}` : "\nNO REASON"
+        })} Nói tới kiểm duyệt viên để tắt tiếng bạn...\`${reason ? `\n\n**LÝ DO**\n> ${reason.substr(0, 1800)}` : "\nKHÔNG CÓ LÝ DO"
         }`
       );
     message.channel.send(embed).catch((e) => console.log(e));
 
     member
-      .send(embed.setTitle(`You got muted by: \`${message.author.tag}\``))
+      .send(embed.setTitle(`Bạn bị tắt tiếng bởi: \`${message.author.tag}\``))
       .catch((e) => console.log(e));
 
     setTimeout(() => {
       try {
         member.send(
           embed
-            .setTitle(`You got unmuted: \`${member.user.tag}\``)
+            .setTitle(`Bạn được bỏ tắt tiếng: \`${member.user.tag}\``)
             .setDescription("\u200b")
         )
           .catch((e) => console.log(e));
@@ -310,7 +310,7 @@ module.exports = {
           new MessageEmbed()
             .setColor(ee.color)
             .setColor(ee.color)
-            .setDescription("**Something went wrong!**")
+            .setDescription("**Đã có lỗi xảy ra!**")
             .setFooter(ee.footertext)
         );
       }

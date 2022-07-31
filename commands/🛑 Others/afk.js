@@ -10,7 +10,7 @@ module.exports = {
     category: '🛑 Others',
     memberpermissions: ["SEND_MESSAGES"],
     cooldown: '',
-    description: 'Put User in AFK',
+    description: 'Đưa người dùng vào trạng thái AFK',
     usage: '',
     /** 
      * @param {Client} client 
@@ -18,13 +18,13 @@ module.exports = {
      * @param {String[]} args 
      */
     run: async (client, message, args, prefix) => {
-        const reason = args.join(" ") || 'No reason!';
+        const reason = args.join(" ") || 'Không có lý do nào được cung cấp!';
 
         afk.set(message.author.id, [Date.now(), reason]);
 
         message.channel.send(
             new MessageEmbed()
-                .setDescription(`You have been set as AFK. \`${reason}\``)
+                .setDescription(`Bạn đã được đặt trạng thái AFK với lý do là \`${reason}\``)
                 .setTimestamp()
                 .setColor(ee.color)
                 .setFooter(ee.footertext)

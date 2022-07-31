@@ -6,7 +6,7 @@ module.exports = {
     category: "🔰 Info",
     aliases: ['members'],
     cooldown: 5,
-    description: 'Show all Member',
+    description: 'Hiển thị tất cả thành viên',
     usage: 'membercount',
     memberpermissions: [" "],
     /** 
@@ -17,6 +17,6 @@ module.exports = {
     run: async (client, message, args) => {
         message.channel.send(
              new MessageEmbed()
-                .setDescription(`** 🔰  Total Members** :- \`\`${message.guild.memberCount}\`\` \n ** ✨ Total Bots** :- \`\`${message.guild.members.cache.filter(member => member.user.bot).size}\`\``))
+                .setDescription(`** 🔰Tổng số thành viên** :- \`\`${message.guild.memberCount}\`\` \n ** ✨ Tổng số bots** :- \`\`${message.guild.members.cache.filter(member => member.user.bot).size}\`\``))
     }
 }

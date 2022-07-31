@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_GUILD'],
     cooldown: 5,
-    description: 'Warn a User as a Punishment',
+    description: 'Cảnh cáo thành viên',
     usage: '[COMMAND] + [@user] + [reason]',
     /** 
      * @param {Client} client 
@@ -25,7 +25,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\` Please Mention a User to Warn \`\``)
+                    .setDescription(`\`\` Hãy nhắc tới ai đó để cảnh cáo \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -35,7 +35,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\`You Can't Warn A Bot \`\``)
+                    .setDescription(`\`\` Bạn không thể cảnh cáo bot \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -45,7 +45,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\`You can't Warn YourSelf\`\``)
+                    .setDescription(`\`\` Bạn không thể tự cảnh cáo chính mình \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -55,7 +55,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\`You can't Warn Guild Owner\`\``)
+                    .setDescription(`\`\` Bạn không thể cảnh cáo chủ server \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -67,7 +67,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\`You Must Provide Reason for Warn a User\`\``)
+                    .setDescription(`\`\` Bạn phải cho biết lý do cảnh cáo thành viên này \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -82,7 +82,7 @@ module.exports = {
         //     warnmember.send(
         //         new MessageEmbed()
         //             .setColor(ee.color)
-        //             .setDescription(`\`\` You Have Been Warned in **${message.guild.name}** For **${reason}** \`\``)
+        //             .setDescription(`\`\` Bạn đã bị cảnh cáo trong **${message.guild.name}** với lý do **${reason}** \`\``)
         //             .setFooter(ee.footertext)
         //     )
         //    } catch (e) {
@@ -91,7 +91,7 @@ module.exports = {
             await message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** <@${warnmember.id}>  Has Been ✅ Warned For ${reason}`)
+                    .setDescription(`** <@${warnmember.id}> đã bị ✅ cảnh cáo với lý do ${reason}`)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         } else if (warnings !== null) {
@@ -101,16 +101,15 @@ module.exports = {
                 new MessageEmbed()
                     .setColor(ee.color)
                     .setThumbnail(warnmember.user.displayAvatarURL({ dynamic: true }))
-                    .setDescription(`\`\` You Have Been Warned in **${message.guild.name}** For **${reason}** \`\``)
+                    .setDescription(`\`\` Bạn đã bị cảnh cáo trong **${message.guild.name}** với lý do **${reason}** \`\``)
                     .setFooter(ee.footertext)
             )
             await message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** <@${warnmember.id}>  Has Been ✅ Warned For ${reason}`)
+                    .setDescription(`** <@${warnmember.id}> đã bị ✅ cảnh cáo với lý do ${reason}`)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
-
     }
 }

@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['DEAFEN_MEMBERS'],
     cooldown: 5,
-    description: "Mute and Unmute Users in Voice Channel",
+    description: "Tắt tiếng hoặc bật tiếng thành viên trong kênh voice",
     usage: "vcallmute",
     /** 
      * @param {Client} client 
@@ -23,7 +23,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(` <@${message.author.id}> Please Join  Voice Channel`)
+                    .setDescription(` <@${message.author.id}> xin hãy vào kênh voice trước!!!`)
                     .setFooter(ee.footertext)
             )
         }
@@ -34,7 +34,7 @@ module.exports = {
                 message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`${voicechannel.name} Members is Muted Now`)
+                        .setDescription(`${voicechannel.name} thành viên đã bị tắt tiếng`)
                 )
             })
         }
@@ -44,7 +44,7 @@ module.exports = {
                 message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`${voicechannel.name} Members is Unmuted Now`)
+                        .setDescription(`${voicechannel.name} thành viên đã được bỏ tắt tiếng`)
                 )
             })
         }

@@ -9,8 +9,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: [],
     cooldown: 5,
-    description: 'Verify a User',
-    usage: '[COMMAND] + [Channel] + [Question]',
+    description: 'Xác nhận thành viên',
+    usage: 'Cách dùng: [Lệnh/Command] + [Kênh/Channel] + [Câu hỏi/Question]',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -35,7 +35,7 @@ module.exports = {
 
         const channel = message.guild.channels.create('Verify', {
             type: "text",
-            topic: "This Channel Used For Verify Users and If You Delete this channel Verify System Will not work you need to again setup Verify System",
+            topic: "Kênh này được dùng để xác nhận thành viên và nếu bạn xóa kênh này thì hệ thống xác nhận có thể không hoạt động và cần được thiết lập lại",
             // parent: channel.id,
             permissionOverwrites: [
                 {
@@ -57,12 +57,12 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Verification')
                 .setColor("GREEN")
-                .setTitle(` ** Verify Your Self **`)
-                .setDescription('\`\`Click on the button below to verify \`\`')
+                .setTitle(` ** Xác nhận bản thân **`)
+                .setDescription('\`\`Nhấn vào nút dưới đây để xác nhận \`\`')
 
             const add = new MessageButton()
                 .setStyle("green")
-                .setLabel("Verify Me!")
+                .setLabel("Xác nhận tôi!")
                 .setID("AddVerifiedRole")
 
             const row = new MessageActionRow()

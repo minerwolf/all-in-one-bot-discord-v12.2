@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["sr"],
   category: "🎶 Music",
   permissions: "",
-  description: "Search Songs to Play",
+  description: "Tìm bài hát để phát",
   usage: "",
   /**
    * @param {Client} client
@@ -24,7 +24,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join Voice Channel To Search and Play Song`
+            `Bạn cần vào kênh voice trước để tìm và phát bài hát`
           )
         )
         .then((msg) => {
@@ -40,7 +40,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+            `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
           )
         )
         .then((msg) => {
@@ -53,7 +53,7 @@ module.exports = {
         .reply(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Enter Song Name to Search and Play Song`
+            `Nhập tên bài hát để tìm và phát ...`
           )
         )
         .then((msg) => {
@@ -69,7 +69,7 @@ module.exports = {
       return message
         .reply(
            new MessageEmbed()
-                .setColor(ee.color).setDescription(`I am Not Allowed In Voice Channel`)
+                .setColor(ee.color).setDescription(`Tôi chưa có đủ quyền để kết nối vào kênh voice`)
         )
         .then((msg) => {
           msg.delete({ timeout: 5000 });
@@ -78,7 +78,7 @@ module.exports = {
     if (args.length) {
       message.channel
         .send( new MessageEmbed()
- .setColor(ee.color).setDescription(`Searching ${args.join(" ")}`))
+ .setColor(ee.color).setDescription(`Đang tìm ${args.join(" ")}`))
         .then((msg) => {
           msg.delete({ timeout: 5000 });
         });

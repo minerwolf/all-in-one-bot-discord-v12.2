@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Send DM to all Guild Members',
+    description: 'Gửi tin nhắn trực tiếp tới tất cả thành viên trong máy chủ',
     usage: '[COMMAND] + [text]',
     /** 
      * @param {Client} client 
@@ -21,7 +21,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\` Only Guild Owner Can use This Command \`\``)
+                    .setDescription(`\`\` Chỉ có chủ server mới có thể dùng lệnh này !!! \`\``)
                     .setFooter(ee.footertext)
             )
         } else {
@@ -31,12 +31,12 @@ module.exports = {
                 user.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setTitle(`Message From ${message.author.username}`)
+                        .setTitle(`Tin nhắn từ ${message.author.username}`)
                         .setDescription(`** ${dmtext} **`)
                         .setFooter(ee.footertext)
                 ).catch(err => console.log(err))
             })
-            message.channel.send(`Done`).then(msg => msg.delete({ timeout: 5000 }))
+            message.channel.send(`Xong`).then(msg => msg.delete({ timeout: 5000 }))
         }
     }
 }

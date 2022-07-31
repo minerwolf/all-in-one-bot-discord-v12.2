@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'DM a User Using Bot',
-    usage: '[COMMAND] + [text]',
+    description: 'Nhắn tin cho người dùng bằng bot',
+    usage: '[COMMAND] + [văn bản]',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -23,7 +23,7 @@ module.exports = {
             return message.reply(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Please Mention a User to Send Message **`)
+                    .setDescription(`**Hãy nhắc tới ai đó để gửi tin nhắn**`)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 3000 }))
         }
@@ -32,7 +32,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Please Write  a Message to Send User **`)
+                    .setDescription(`**Hãy viết gì đó để gửi cho người dùng này**`)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 3000 }))
         }
@@ -41,10 +41,9 @@ module.exports = {
             .setColor(ee.color)
             .setTitle(`A Message From ${message.author.username}`)
             .setThumbnail(user.displayAvatarURL({ dynamic: true }))
-            .addField(`For More Information DM This User <@${message.author.id}> `)
+            .addField(`Để thêm thông tin hãy DM người dùng này <@${message.author.id}> `)
             .setDescription(`${message.author.username}s Message:`, `\`\` ${text} \`\``)
             .setFooter(ee.footertext)
-
 
         user.send(userembed).catch(e => {
             if (!e) {
@@ -58,7 +57,7 @@ module.exports = {
                 message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`Message SuccessFully Sent to <@${user.id}>`)
+                        .setDescription(`Tin nhắn đã được gửi thành công tới <@${user.id}>`)
                         .setFooter(ee.footertext)
                 ).then(msg => msg.delete({ timeout: 3000 }))
             }

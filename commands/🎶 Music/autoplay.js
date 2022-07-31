@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["auplay", "autop"],
   category: "🎶 Music",
   permissions: " ",
-  description: "Enable aur Disable Autoplay",
+  description: "Bật hoặc tắt tự động phát",
   usage: "",
   /**
    * @param {Client} client
@@ -24,7 +24,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join Voice Channel To Enable or Disable Autoplay Song`
+            `Bạn cần vào kênh voice để bật hoặc tắt tự động phát bài hát`
           )
         )
         .then((msg) => {
@@ -36,7 +36,7 @@ module.exports = {
       return message.channel
         .send(
            new MessageEmbed()
-                .setColor(ee.color).setDescription(`Nothing Playing In Voice Channel`)
+                .setColor(ee.color).setDescription(`Hiện đang không phát gì trong kênh voice`)
         )
         .then((msg) => {
           msg.delete({ timeout: 5000 });
@@ -51,7 +51,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+            `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
           )
         )
         .then((msg) => {
@@ -64,9 +64,9 @@ module.exports = {
       .send(
          new MessageEmbed()
                 .setColor(ee.color)
-          .setDescription(`Song Resumed By <@${message.author.id}>`)
+          .setDescription(`Bài hát được tiếp tục bởi <@${message.author.id}>`)
           .setDescription(
-            `AutoPlay is Now **${
+            `Tự động phát đang **${
               distube.toggleAutoplay(message) ? "✅ Active" : "❌ Deactive"
             }**`
           )

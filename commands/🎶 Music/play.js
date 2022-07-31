@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["p"],
   category: "🎶 Music",
   permissions: "",
-  description: "Play Song in Discord",
+  description: "Phát nhạc trong Discord",
   usage: "",
   /**
    * @param {Client} client
@@ -25,7 +25,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join Voice Channel To Play Song`
+            `Bạn cần vào kênh voice trước để phát bài hát`
           )
         )
         .then((msg) => {
@@ -41,7 +41,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+            `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
           )
         )
         .then((msg) => {
@@ -54,7 +54,7 @@ module.exports = {
         .reply(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Enter Song Name to Play Song`
+            `Hãy nhập tên bài hát để phát`
           )
         )
         .then((msg) => {
@@ -70,7 +70,7 @@ module.exports = {
       return message
         .reply(
            new MessageEmbed()
-                .setColor(ee.color).setDescription(`I am Not Allowed In Voice Channel`)
+                .setColor(ee.color).setDescription(`Tôi chưa có đủ quyền để kết nối vào kênh voice`)
         )
         .then((msg) => {
           msg.delete({ timeout: 5000 });

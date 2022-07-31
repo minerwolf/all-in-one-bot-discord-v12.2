@@ -19,7 +19,7 @@ const client = new Client({
   disableEveryone: true,
   partials: ["MESSAGE", "CHANNEL", "REACTION"],
   presence : {
-    status : "dnd",
+    status : "DND",
   }
 });
 module.exports = client;
@@ -67,7 +67,11 @@ function requirehandlers() {
   });
 } requirehandlers();
 
+const keepAlive = require("./html");
 
+
+
+keepAlive();
 client.login(config.token);
 
 module.exports.requirehandlers = requirehandlers;

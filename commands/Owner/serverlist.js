@@ -8,7 +8,7 @@ module.exports = {
     category: ' ',
     memberpermissions: [],
     cooldown: 5,
-    description: '',
+    description: "Hiển thị danh sách server mà bot đã tham gia vào",
     usage: '',
     /** 
      * @param {Client} client 
@@ -30,7 +30,7 @@ module.exports = {
             let page = 1;
 
             let description =
-                `Total Servers - ${bot.guilds.cache.size}\n\n` +
+                `Tổng số máy chủ - ${bot.guilds.cache.size}\n\n` +
                 bot.guilds.cache
                     .sort((a, b) => b.memberCount - a.memberCount)
                     .map(r => r)
@@ -47,7 +47,7 @@ module.exports = {
                 .setAuthor(bot.user.tag, bot.user.displayAvatarURL({ dynamic: true }))
 
                 .setColor("00FFFF")
-                .setFooter(`Page - ${page}/${Math.ceil(bot.guilds.cache.size / 10)}`)
+                .setFooter(`Trang - ${page}/${Math.ceil(bot.guilds.cache.size / 10)}`)
                 .setDescription(description);
 
             let msg = await message.channel.send(embed);
@@ -71,7 +71,7 @@ module.exports = {
                         return msg.delete();
                     }
                     description =
-                        `Total Servers - ${bot.guilds.cache.size}\n\n` +
+                        `Tổng số máy chủ - ${bot.guilds.cache.size}\n\n` +
                         bot.guilds.cache
                             .sort((a, b) => b.memberCount - a.memberCount)
                             .map(r => r)
@@ -87,7 +87,7 @@ module.exports = {
                     // Update the embed with new informations
                     embed
                         .setFooter(
-                            `Page - ${page}/${Math.round(bot.guilds.cache.size / 10 + 1)}`
+                            `Trang - ${page}/${Math.round(bot.guilds.cache.size / 10 + 1)}`
                         )
                         .setDescription(description);
 
@@ -107,7 +107,7 @@ module.exports = {
                         return msg.delete();
                     }
                     description =
-                        `Total Servers - ${bot.guilds.cache.size}\n\n` +
+                        `Tổng số máy chủ - ${bot.guilds.cache.size}\n\n` +
                         bot.guilds.cache
                             .sort((a, b) => b.memberCount - a.memberCount)
                             .map(r => r)
@@ -123,7 +123,7 @@ module.exports = {
                     // Update the embed with new informations
                     embed
                         .setFooter(
-                            `Page - ${page}/${Math.round(bot.guilds.cache.size / 10 + 1)}`
+                            `Trang - ${page}/${Math.round(bot.guilds.cache.size / 10 + 1)}`
                         )
                         .setDescription(description);
 

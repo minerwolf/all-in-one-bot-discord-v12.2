@@ -10,7 +10,7 @@ module.exports = {
     category: '🔰 Info',
     memberpermissions: [],
     cooldown: 5,
-    description: 'Show Info Of a Channel',
+    description: 'Xem thông tin của kênh nào đó',
     usage: "channelinfo <@CHANNEL>",
     /** 
      * @param {Client} client 
@@ -24,7 +24,7 @@ module.exports = {
             if (!role) return message.channel.send(
                  new MessageEmbed()
                 .setColor(ee.color)
-                    .setDescription(`Channel Not Found`)
+                    .setDescription(`Không tìm thấy kênh/kênh không tồn tại`)
             )
 
             //create the EMBED
@@ -32,12 +32,12 @@ module.exports = {
  .setColor(ee.color)
             embeduserinfo.setThumbnail(message.guild.iconURL({ dynamic: true, size: 512 }))
             embeduserinfo.setAuthor("Information about:   " + role.name, message.guild.iconURL({ dynamic: true }), "https://discord.gg/FQGXbypRf8")
-            embeduserinfo.addField('**❱ Name:**', `\`${role.name}\``, true)
+            embeduserinfo.addField('**❱ Tên:**', `\`${role.name}\``, true)
             embeduserinfo.addField('**❱ ID:**', `\`${role.id}\``, true)
-            embeduserinfo.addField('**❱ Date Created:**', "\`" + moment(role.createdAt).format("DD/MM/YYYY") + "\`\n" + "`" + moment(role.createdAt).format("hh:mm:ss") + "\`", true)
-            embeduserinfo.addField('**❱ Position:**', `\`${role.rawPosition}\``, true)
-            embeduserinfo.addField('**❱ MemberCount:**', `\`${role.members.size} Members have it\``, true)
-            embeduserinfo.addField('**❱ Manageable:**', `\`${role.manageable ? "✔️" : "❌"}\``, true)
+            embeduserinfo.addField('**❱ Ngày tạo:**', "\`" + moment(role.createdAt).format("DD/MM/YYYY") + "\`\n" + "`" + moment(role.createdAt).format("hh:mm:ss") + "\`", true)
+            embeduserinfo.addField('**❱ Vị trí:**', `\`${role.rawPosition}\``, true)
+            embeduserinfo.addField('**❱ Số lượng thành viên:**', `\`${role.members.size} Members have it\``, true)
+            embeduserinfo.addField('**❱ Có thể quản lý?**', `\`${role.manageable ? "✔️" : "❌"}\``, true)
             embeduserinfo.setFooter(ee.footertext, ee.footericon)
             //send the EMBED
             message.channel.send(embeduserinfo)

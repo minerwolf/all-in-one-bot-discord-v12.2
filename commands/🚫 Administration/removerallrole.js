@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: "remove a role from all user of the current server",
+    description: "Xóa vai trò khỏi tất cả thành viên ở server hiện tại",
     usage: 'removeroleall <roles>',
     /** 
      * @param {Client} client 
@@ -33,7 +33,7 @@ module.exports = {
                             return message.channel.send(
                                 new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`My role is not high enough than **${role.name}** role!`)
+                                    .setDescription(`Vai trò của tôi chưa đủ cao so với **${role.name}**!`)
                             );
                         }
 
@@ -41,13 +41,13 @@ module.exports = {
                             return message.channel.send(
                                 new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`Your role must be higher than **${role.name}** role!`)
+                                    .setDescription(`Vai trò của bạn phải cao hơn **${role.name}**!`)
                             );
                         }
 
                         if (!role) {
                             return message.channel.send(new MessageEmbed()
-                                .setColor(ee.color).setDescription("Please provide a valid role"));
+                                .setColor(ee.color).setDescription("Xin hãy cho biết một vai trò hợp lệ"));
                         }
 
                         message.guild.bot.cache.forEach(member => member.roles.add(role));
@@ -55,7 +55,7 @@ module.exports = {
                         message.channel.send(
                             new MessageEmbed()
                                 .setColor(ee.color)
-                                .setDescription(` ✅ Successfully Added **${role.name}** to Bot`)
+                                .setDescription(` ✅ Đã thêm vai trò **${role.name}** vào Bot`)
                         );
                     }
                     break;
@@ -71,7 +71,7 @@ module.exports = {
                         return message.channel.send(
                             new MessageEmbed()
                                 .setColor(ee.color)
-                                .setDescription(`My role is not high enough than **${role.name}** role!`)
+                                .setDescription(`Vai trò của tôi chưa đủ cao so với **${role.name}**!`)
                         );
                     }
 
@@ -79,7 +79,7 @@ module.exports = {
                         return message.channel.send(
                             new MessageEmbed()
                                 .setColor(ee.color)
-                                .setDescription(`Your role must be higher than **${role.name}** role!`)
+                                .setDescription(`Vai trò của bạn phải cao hơn **${role.name}**!`)
                         );
                     }
 
@@ -87,7 +87,7 @@ module.exports = {
                         return message.channel.send(
                             new MessageEmbed()
                                 .setColor(ee.color)
-                                .setDescription("Please provide a valid role")
+                                .setDescription("Xin hãy cho biết một vai trò hợp lệ")
                         );
                     }
 
@@ -96,7 +96,7 @@ module.exports = {
                     message.channel.send(
                         new MessageEmbed()
                             .setColor(ee.color)
-                            .setDescription(` ✅ Successfully Added **${role.name}** to member`)
+                            .setDescription(` ✅ Đã thêm vai trò **${role.name}** vào thành viên`)
                     );
                 }
             }
@@ -112,7 +112,7 @@ module.exports = {
                 return message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`My role is not high enough than **${role.name}** role!`)
+                        .setDescription(`Vai trò của tôi chưa đủ cao so với **${role.name}**!`)
                 );
             }
 
@@ -120,7 +120,7 @@ module.exports = {
                 return message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`Your role must be higher than **${role.name}** role!`)
+                        .setDescription(`Vai trò của bạn phải cao hơn **${role.name}**!`)
                 );
             }
 
@@ -128,7 +128,7 @@ module.exports = {
                 return message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription("Please provide a valid role")
+                        .setDescription("Xin hãy cho biết một vai trò hợp lệ")
                 );
             }
 
@@ -137,7 +137,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`Successfully Removed **${role.name}** from Everyone`)
+                    .setDescription(`Đã xóa thành công **${role.name}** khỏi tất cả mọi người`)
             );
         } catch (e) {
             message.channel.send(

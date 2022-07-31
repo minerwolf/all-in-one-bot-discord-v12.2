@@ -10,7 +10,7 @@ module.exports = {
     category: '⚙️ Config',
     memberpermissions: ['MANAGE_CHANNELS'],
     cooldown: 5,
-    description: "Setup The Welcome Channel in Guild",
+    description: "Cài đặt kênh chào đón thành viên mới trong máy chủ",
     usage: "welcome-channel",
     /** 
      * @param {Client} client 
@@ -20,7 +20,7 @@ module.exports = {
     run: async (client, message, args, prefix) => {
 
         if (!args[0]) {
-            return message.channel.send(`\`Usage: ${prefix}welcome-channel <#channel|off>\``);
+            return message.channel.send(`\`Cách dùng: ${prefix}welcome-channel <#channel|off>\``);
         }
         if (message.mentions.channels.first()) {
             const data = await joinchannel.findOne({
@@ -33,7 +33,7 @@ module.exports = {
                 });
 
                 message.channel.send(
-                    `Join Channel set to ${message.mentions.channels.first()}`
+                    `Kênh chào đón đã được đặt thành ${message.mentions.channels.first()}`
                 );
 
                 let newData = new joinchannel({
@@ -43,7 +43,7 @@ module.exports = {
                 newData.save();
             } else if (!data) {
                 message.channel.send(
-                    `Join Channel set to ${message.mentions.channels.first()}`
+                    `Kênh tham gia đã được đặt thành ${message.mentions.channels.first()}`
                 );
 
                 let newData = new joinchannel({
@@ -62,9 +62,9 @@ module.exports = {
                     GuildID: message.guild.id,
                 });
 
-                return message.channel.send(`Join channel has been turned off!`);
+                return message.channel.send(`Kênh chào mừng đã được vô hiệu hóa!`);
             } else if (!data2) {
-                return message.channel.send(`Join channel isn't setup!`);
+                return message.channel.send(`Kênh chào mừng chưa được thiết lập!`);
             }
         }
     }

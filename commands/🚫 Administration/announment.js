@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Do Announcment in Server',
-    usage: '[COMMAND] + [Channel] + [Text]',
+    description: 'Làm thông báo trong máy chủ',
+    usage: '[lệnh] + [kênh] + [văn bản]',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -25,17 +25,17 @@ module.exports = {
             message.reply(
                  new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription("Specify A Channel To Send This Announcement")
+                .setDescription("Hãy cho biết kênh để gửi thông báo này")
             )
             return
         } else {
             let announce = args.slice(1).join(" ")
-            if (!announce) return message.channel.send(`Please Specify What Do You Want To Announce`)
+            if (!announce) return message.channel.send(`Hãy cho biết bạn muốn thông báo gì?`)
             const embed =  new MessageEmbed()
  .setColor(ee.color)
-                .setTitle(`🔰Announcement🔰`)
+                .setTitle(`🔰Thông báo🔰`)
                 .setDescription(`${announce}`)
-                .setFooter("Sent by:" + message.author.username + '#' + message.author.discriminator)
+                .setFooter("Được gửi bởi:" + message.author.username + '#' + message.author.discriminator)
             channel.send(embed)
         }
     }

@@ -11,7 +11,7 @@ module.exports = {
     category: '⚙️ Config',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Enables anti-raidmode and won\'t allow new members to join.',
+    description: 'Bật bộ chống raid máy chủ và không cho thành viên mới gia nhập vào.',
     usage: "antiraid",
     /** 
      * @param {Client} client 
@@ -24,12 +24,12 @@ module.exports = {
             'disable'
         ]
 
-        if (!args.length) return message.reply("Please enter either **enable** or **disable**")
+        if (!args.length) return message.reply("Xin hãy nhập là **enable** hoặc **disable**")
         const opt = args[0].toLowerCase();
-        if (!opt) return message.reply('Please enter either **enable** or **disable**')
+        if (!opt) return message.reply('Xin hãy nhập là **enable** hoặc **disable**')
 
 
-        if (!options.includes(opt)) return message.reply('Please enter either **enable** or **disable**')
+        if (!options.includes(opt)) return message.reply('Xin hãy nhập là **enable** hoặc **disable**')
 
         if (opt === 'enable') {
             schema.findOne({ Guild: message.guild.id }, async (err, data) => {
@@ -38,9 +38,9 @@ module.exports = {
                         Guild: message.guild.id,
                     })
                     data.save()
-                    message.reply(`Success! Anti-raidmode is enabled`)
+                    message.reply(`Bộ chống raid đã được kích hoạt!`)
                 } else {
-                    message.reply(`Anti-raidmode is already enabled`)
+                    message.reply(`Bộ chống raid đã kích hoạt rồi`)
                 }
             })
 
@@ -48,9 +48,9 @@ module.exports = {
 
         if (opt === 'disable') {
             schema.findOne({ Guild: message.guild.id }, async (err, data) => {
-                if (!data) return message.reply('The Anti-raidmode has already been disabled')
+                if (!data) return message.reply('Bộ chống raid đã được vô hiệu hóa rồi')
                 data.delete()
-                message.reply('Anti-raidmode has been disabled')
+                message.reply('Bộ chống raid đã bị vô hiệu hóa!')
 
             })
 

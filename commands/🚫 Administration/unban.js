@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['BAN_MEMBERS'],
     cooldown: 5,
-    description: 'Add role a user',
-    usage: 'unban + <@user> + <@reason>',
+    description: 'Dỡ bỏ lệnh cấm của thành viên',
+    usage: 'unban + <@user> + <lý do>',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -23,8 +23,8 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setTitle(`**Please Give to Unban user**`)
-                    .setDescription(`> Usage =  ${prefix}unban + <ID> + <reason>`)
+                    .setTitle(`**Hãy cho biết thành viên để dỡ bỏ lệnh cấm**`)
+                    .setDescription(`> Cách dùng =  ${prefix}unban + <ID> + <lý do>`)
                     .setFooter(ee.footertext)
             )
         }
@@ -32,7 +32,7 @@ module.exports = {
         if (isNaN(args[0])) return message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription("**You need to provide an Valid User ID.**")
+                .setDescription("**Bạn cần cho biết ID người dùng hợp lệ**")
                 .setFooter(ee.footertext)
         )
 
@@ -44,7 +44,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`**Please Give Reason **`)
+                    .setDescription(`**Hãy cho biết lý do**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -55,12 +55,10 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`> ${bannedMember} Unbanned From Guild \n\n > Reason = \`\`${reason}\`\``)
+                    .setDescription(`> ${bannedMember} đã được dỡ bỏ lệnh cấm khỏi server \n\n > Lý do = \`\`${reason}\`\``)
                     .setThumbnail(bannedMember.displayAvatarURL({ dynamic: true }))
-                    .setFooter(` UnBanned by ${message.author.username}`)
+                    .setFooter(`Được bỏ lệnh cấm bởi ${message.author.username}`)
             )
         }
-
-
     }
 }

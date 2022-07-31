@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_GUILD'],
     cooldown: 5,
-    description: 'Delete Warnings From a User',
+    description: 'Xóa cảnh cáo khỏi thành viên',
     usage: '[COMMAND] + [@user]',
     /** 
      * @param {Client} client 
@@ -25,7 +25,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\` Please Mention a User to Delete warnings \`\``)
+                    .setDescription(`\`\` Hãy nhắc đến ai đó để xóa cảnh cáo \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -35,7 +35,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\`You Can't Delete warnings of a Bot \`\``)
+                    .setDescription(`\`\` Không thể xóa cảnh cáo khỏi Bot \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -45,7 +45,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\`You can't Delete Your Own warnings\`\``)
+                    .setDescription(`\`\` Không thể xóa cảnh cáo của chính mình \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -55,7 +55,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`\`\`You can't Delete warnings Of Guild Owner\`\``)
+                    .setDescription(`\`\` Không thể xóa cảnh cáo của chủ server \`\``)
                     .setFooter(ee.footertext)
             ).then(msg => msg.delete({ timeout: 5000 }))
         }
@@ -68,7 +68,7 @@ module.exports = {
         await message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`** <@${warnmember.id}> Warnings Deleted By  <@${message.author.id}> in  ${message.guild.name} `)
+                .setDescription(`** <@${warnmember.id}> đã được xóa bởi  <@${message.author.id}> trong ${message.guild.name} `)
                 .setFooter(ee.footertext)
         ).then(msg => msg.delete({ timeout: 5000 }))
 

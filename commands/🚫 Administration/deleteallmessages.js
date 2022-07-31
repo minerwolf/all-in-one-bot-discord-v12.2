@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_CHANNELS'],
     cooldown: 5,
-    description: 'Delete all Messages in a Channel',
+    description: 'Xóa tất cả tin nhắn trong kênh',
     usage: '',
     /** 
      * @param {Client} client 
@@ -20,14 +20,14 @@ module.exports = {
         if (!args.length) {
              new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`Usage >>> ${prefix}deleteallmessages <#channel>`)
+                .setDescription(`Cách dùng >>> ${prefix}deleteallmessages <#channel>`)
         }
         let channel = message.mentions.channels.first();
         if (!channel) {
             message.channel.send(
                  new MessageEmbed()
                 .setColor(ee.color)
-                    .setDescription(`Please Specify a Channel to Delete Messages`)
+                    .setDescription(`Hãy cho biết kênh để xóa tin nhắn`)
             )
         } else {
             const position = channel.position;
@@ -39,7 +39,7 @@ module.exports = {
             const nuke =  new MessageEmbed()
  .setColor(ee.color)
                 .setColor("BLUE")
-                .setDescription(" 🤣😂 **Channel Messages Has Been Deleted!**");
+                .setDescription(" 🤣😂 **Tin nhắn trong kênh đã được xóa!**");
             return message.author.send(nuke)
         }
 

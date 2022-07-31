@@ -9,7 +9,7 @@ module.exports = {
     aliases: ["s"],
     category: "🎶 Music",
     permissions: " ",
-    description: "Play PlayList Songs",
+    description: "Phát bài hát trong danh sách phát",
     usage: "",
     /**
      * @param {Client} client
@@ -25,7 +25,7 @@ module.exports = {
                 new MessageEmbed()
                     .setColor(ee.color)
                     .setDescription(
-                        `Please Join Voice Channel To Play PlayList Song`
+                        `Bạn cần vào kênh voice trước để phát bài hát trong danh sách phát`
                     )
             ).then((msg) => {
                 msg.delete({ timeout: 5000 })
@@ -36,7 +36,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`I am Already Connected in Channel`)
+                    .setDescription(`Tôi đã được kết nối trong kênh voice rồi`)
             ).then((msg) => {
                 msg.delete({ timeout: 5000 })
             })
@@ -50,7 +50,7 @@ module.exports = {
                 new MessageEmbed()
                     .setColor(ee.color).
                     setDescription(
-                        `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+                        `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
                     )
             ).then((msg) => {
                 msg.delete({ timeout: 5000 })

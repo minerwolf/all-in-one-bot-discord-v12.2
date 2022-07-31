@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["shf"],
   category: "🎶 Music",
   permissions: " ",
-  description: "Shuffle Playing Song",
+  description: "Trộn bài hát đang phát",
   usage: "",
   /**
    * @param {Client} client
@@ -23,7 +23,7 @@ module.exports = {
       return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Please Join Voice Channel To Shuffle Song`
+          `Bạn cần vào kênh voice trước để trộn bài hát`
         )
       ).then((msg) => {
         msg.delete({timeout : 5000})
@@ -33,7 +33,7 @@ module.exports = {
     if (!message.guild.me.voice.channel)
       return message.channel.send(
          new MessageEmbed()
-                .setColor(ee.color).setDescription(`Nothing Playing In Voice Channel`)
+                .setColor(ee.color).setDescription(`Hiện đang không phát gì trong kênh voice`)
       ).then((msg) => {
         msg.delete({timeout : 5000})
     })
@@ -46,7 +46,7 @@ module.exports = {
       return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+          `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
         )
       ).then((msg) => {
         msg.delete({timeout : 5000})
@@ -57,7 +57,7 @@ module.exports = {
     message.channel.send(
        new MessageEmbed()
                 .setColor(ee.color).setDescription(
-        `Song Shuffled By <@${message.author.id}>`
+        `Bài hát được trộn bởi <@${message.author.id}>`
       )
     ).then((msg) => {
         msg.delete({timeout : 5000})

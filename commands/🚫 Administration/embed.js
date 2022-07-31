@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Create Embed in Server',
-    usage: '[COMMAND] + [Channel] + [Question]',
+    description: 'Thêm mã nhúng vào máy chủ',
+    usage: '[COMMAND] + [Channel]',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -23,7 +23,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`Please Mention a Channel to Send Embed`)
+                    .setDescription(`Hãy cho biết tên kênh để gửi mã nhúng`)
                     .setFooter(ee.footertext)
             )
         }
@@ -31,7 +31,7 @@ module.exports = {
         let embed = new MessageEmbed();
         message.reply(
             new MessageEmbed()
-                .setDescription(`> What is Tittle Of Embed ? || if not then type \`\`'none'\`\``)
+                .setDescription(`> Tiêu đề của mã nhúng nên là gì? || Nếu không có thì nhấn vào là \`\`'none'\`\``)
         )
             .then(m => m.delete({ timeout: 30000 }));
         let title = await message.channel.awaitMessages(
@@ -47,7 +47,7 @@ module.exports = {
                 if (title.first().length > 256)
                     return message.reply(
                         new MessageEmbed()
-                            .setDescription(`> Title Can not Biger Than 256 words`)
+                            .setDescription(`> Tiêu đề không được dài hơn 256 ký tự!!!`)
                     )
                         .then(m => m.delete({ timeout: 5000 }));
                 embed.setTitle(title.first().content);
@@ -57,7 +57,7 @@ module.exports = {
         message
             .reply(
                 new MessageEmbed()
-                    .setDescription(`> What is Description of Embed ? || if not then type \`\`'none'\`\``)
+                    .setDescription(`> Mô tả của mã nhúng nên là gì? || Nếu không có thì nhập vào là \`\`'none'\`\``)
             )
             .then(m => m.delete({ timeout: 30000 }));
         let description = await message.channel.awaitMessages(
@@ -73,7 +73,7 @@ module.exports = {
                 if (description.first().length > 2048)
                     return message.reply(
                         new MessageEmbed()
-                            .setDescription(`Description Can not Bigger than 2048 Words`)
+                            .setDescription(`Mô tả không được dài hơn 2048 ký tự!!!`)
                     )
                         .then(m => m.delete({ timeout: 5000 }));
                 embed.setDescription(description.first().content);
@@ -83,7 +83,7 @@ module.exports = {
         message
             .reply(
                 new MessageEmbed()
-                    .setDescription(`> What is Colour of Embed ? Please Put Hex Code of Colour || if not then type \`\`'none'\`\``)
+                    .setDescription(`> Màu của mã nhúng nên là gi? Hãy nhập mã hex của màu || Nếu không có thì nhập là \`\`'none'\`\``)
             )
             .then(m => m.delete({ timeout: 30000 }));
         let color = await message.channel.awaitMessages(
@@ -99,7 +99,7 @@ module.exports = {
         message
             .reply(
                 new MessageEmbed()
-                    .setDescription(`> What is Footer of Embed ? || if not then type \`\`'none'\`\``)
+                    .setDescription(`> Đuôi của mã nhúng nên là gì? || Nếu không có thì nhập vào là \`\`'none'\`\``)
             )
             .then(m => m.delete({ timeout: 30000 }));
         let footer = await message.channel.awaitMessages(
@@ -116,7 +116,7 @@ module.exports = {
                     return message
                         .reply(
                             new MessageEmbed()
-                                .setDescription(`> Footer can not Bigger Than 100 Words`)
+                                .setDescription(`> Đuôi không được dài hơn 100 ký tự!!!`)
                         )
                         .then(m => m.delete({ timeout: 5000 }));
                 embed.setFooter(footer.first().content);
@@ -128,9 +128,8 @@ module.exports = {
         message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`> Embed Sent to <#${channel.id}>`)
+                .setDescription(`> Mã nhúng đã được gửi vào <#${channel.id}>`)
                 .setFooter(ee.footertext)
         ).then(msg => msg.delete({ timeout: 3000 }))
     }
-
 }

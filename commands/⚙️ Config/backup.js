@@ -10,7 +10,7 @@ module.exports = {
     category: '⚙️ Config',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: "Create and Load Backup in a Guild",
+    description: "Tạo và mở bản sao lưu trong máy chủ",
     usage: "backup",
     /** 
      * @param {Client} client 
@@ -26,7 +26,7 @@ module.exports = {
                 new MessageEmbed()
                     .setColor(ee.color)
                     .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-                    .setDescription(`1. \`\`To Create Backup Type ${prefix}backup create\`\` \n 2.  \`\`To Load Backup Type ${prefix}backup load \`\` \n 3. \`\`To Info about a Backup Type ${prefix}backup info \`\` `)
+                    .setDescription(`1. \`\`Để tạo sao lưu hãy nhập ${prefix}backup create\`\` \n 2.  \`\`Để mở bản sao lưu hãy nhập ${prefix}backup load \`\` \n 3. \`\`Để xem thông tin bản sao lưu hãy nhập ${prefix}backup info \`\` `)
                     .setFooter(ee.footertext)
             )
         }
@@ -38,16 +38,16 @@ module.exports = {
                 jsonBeautify: true
             }).then((backupData) => {
                 // And send informations to the backup owner
-                message.author.send("The backup has been created! To load it, type this command on the server of your choice: `" + prefix + "backup load " + backupData.id);
+                message.author.send("Bản sao lưu đã được tạo! Để mở nó, hãy nhập lệnh sau ở trong máy chủ bạn muốn: `" + prefix + "backup load " + backupData.id);
                 message.channel.send(new MessageEmbed()
-                    .setDescription('Backup has been created and saved to my data. to load your backup, please go to your dms, copy the id that i given, then load it.')
+                    .setDescription('Bản sao lưu đã được tạo và lưu vào cơ sở dữ liệu của tôi. Để mở nó, hãy vào tin nhắn trực tiếp của bạn, sao chép mã ID tôi cấp cho và mở nó')
                     .setColor(ee.color)
                     .setFooter('Backup created at')
                     .setTimestamp());
             }).catch((e) => {
                 return message.reply(
                     new MessageEmbed()
-                        .setDescription(`'Please open your dms, i cant dm you the backup code!'`)
+                        .setDescription(`'Hãy mở tin nhắn trực tiếp của bạn, tôi không thể nhắn mã sao lưu!'`)
                 )
             })
         }
@@ -60,7 +60,7 @@ module.exports = {
                 return message.reply(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`You must specify a valid backup ID!`)
+                        .setDescription(`Bạn cần cho biết ID sao lưu hợp lệ!`)
                         .setFooter(ee.footertext)
                 )
             }
@@ -71,7 +71,7 @@ module.exports = {
                 message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(":warning: | When the backup is loaded, all the channels, roles, etc. will be replaced! Type `-confirm` to confirm!")
+                        .setDescription(":warning: | Khi bản sao lưu được mở, tất cả các vai trò, kênh,... sẽ bị thay thế với những gì có trong bản sao lưu! Nhập `-confirm` để xác nhận!")
                         .setFooter(ee.footertext)
                 );
                 await message.channel.awaitMessages(m => (m.author.id === message.author.id) && (m.content === "-confirm"), {
@@ -83,7 +83,7 @@ module.exports = {
                     return message.channel.send(
                         new MessageEmbed()
                             .setColor(ee.color)
-                            .setDescription(":x: | Time's up! Cancelled backup loading!")
+                            .setDescription(":x: | Đã hết thời gian chờ! Bỏ qua việc mở bản sao lưu!")
                             .setFooter(ee.footertext)
                     );
                 });
@@ -91,7 +91,7 @@ module.exports = {
                 message.author.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(":white_check_mark: | Start loading the backup!")
+                        .setDescription(":white_check_mark: | Bắt đầu mở bản sao lưu!")
                         .setFooter(ee.footertext)
                 );
                 // Load the backup
@@ -103,7 +103,7 @@ module.exports = {
                     return message.author.send(
                         new MessageEmbed()
                             .setColor(ee.color)
-                            .setDescription(":x: | Sorry, an error occurred... Please check that I have administrator permissions!")
+                            .setDescription(":x: | Xin lỗi, đã có lỗi xảy ra... Xin hãy kiểm tra lại là tôi đã có quyền quản trị viên chưa?")
                             .setFooter(ee.footertext)
                     );
                 });
@@ -113,7 +113,7 @@ module.exports = {
                 return message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(":x: | No backup found for `" + backupID + "`!")
+                        .setDescription(":x: | Không tìm thấy sao lưu cho `" + backupID + "`!")
                         .setFooter(ee.footertext)
                 );
             });
@@ -130,7 +130,7 @@ module.exports = {
                 return message.reply(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`You must specify a valid backup ID!`)
+                        .setDescription(`Bạn cần cho biết ID sao lưu hợp lệ!!`)
                         .setFooter(ee.footertext)
                 )
             }
@@ -160,7 +160,7 @@ module.exports = {
                 return message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`> \`\` No Backup For ${backupID} \`\``)
+                        .setDescription(`> \`\` Không có bản sao lưu cho ${backupID} \`\``)
                         .setFooter(ee.footertext)
                 );
             });

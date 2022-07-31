@@ -9,7 +9,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MOVE_MEMBERS'],
     cooldown: 5,
-    description: "Move Member in Bot Channel",
+    description: "Di chuyển thành viên trong kênh voice",
     usage: "voicemove",
     /** 
      * @param {Client} client 
@@ -24,7 +24,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`Please Join Voice Channel First`)
+                    .setDescription(`Bạn cần vào kênh voice trước`)
                     .setFooter(ee.footertext)
             )
         }
@@ -38,8 +38,8 @@ module.exports = {
                 message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`\`\`I am In Your In VC , Now Drag me VC in Which You Want to Go \`\``)
-                        .setFooter(ee.footertext, "Thanks Tyson")
+                        .setDescription(`\`\` Tôi đang ở trong kênh voice của bạn. Bây giờ di chuyển tôi để muốn tôi tới đâu \`\``)
+                        .setFooter(ee.footertext, "Cảm ơn Tyson")
 
                 )
 
@@ -60,8 +60,8 @@ module.exports = {
                         message.channel.send(
                             new MessageEmbed()
                                 .setColor(ee.color)
-                                .setDescription(`I am Already in Voice Channel`)
-                                .setFooter(ee.footertext, "Thanks Tyson")
+                                .setDescription(`Tôi đã ở trong kênh voice của bạn rồi`)
+                                .setFooter(ee.footertext, "Cảm ơn Tyson")
                         )
                     }
                 })

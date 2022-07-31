@@ -6,7 +6,7 @@ module.exports = {
     category: "🔰 Info",
     aliases: ['uptime'],
     cooldown: 5,
-    description: 'Get Bot Uptime..',
+    description: 'Xem thời gian hoạt động của bot',
     usage: 'uptime',
     memberpermissions: [" "],
     /** 
@@ -26,7 +26,7 @@ module.exports = {
                 .setColor(ee.color)
                 .setTitle(`\`\` ${client.user.username} Uptime Info \`\``)
                 .setThumbnail(client.user.displayAvatarURL({dynamic : true}))
-                .setDescription(` \`\`**Uptime**: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds \`\``)
+                .setDescription(` \`\`**Thời gian hoạt động**: ${days} ngày, ${hours} giờ, ${minutes} phút, ${seconds} giây \`\``)
         )
     }
 }

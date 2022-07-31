@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['KICK_MEMBERS'],
     cooldown: 5,
-    description: 'kick a User From Guild',
-    usage: 'kick + <@user> + <reason>',
+    description: 'Đuổi thành viên khỏi máy chủ',
+    usage: 'kick + <@người dùng> + <lý do>',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -23,8 +23,8 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setTitle(`**Please Mention a User to Kick**`)
-                    .setDescription(`> Usage =  ${prefix}kick + <@user> + <reason>`)
+                    .setTitle(`**Hãy nhắc tới ai đó để đuổi**`)
+                    .setDescription(`> Cách dùng =  ${prefix}kick + <@thành viên> + <lý do>`)
                     .setFooter(ee.footertext)
             )
         }
@@ -34,7 +34,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Your Role is Not High To Kick this User`)
+                    .setDescription(`**Vai trò của bạn chưa đủ cao để đuổi thành viên này**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -46,7 +46,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`**Please Give Reason **`)
+                    .setDescription(`**Hãy cho biết lý do đuổi**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -60,12 +60,10 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`> <@${member.user.id}> Kicked From Guild \n\n > Reason = \`\`${reason}\`\``)
+                    .setDescription(`> <@${member.user.id}> đã bị đuổi khỏi server \n\n > Lý do = \`\`${reason}\`\``)
                     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-                    .setFooter(`Kicked  by ${message.author.username}`)
+                    .setFooter(`Bị đuổi bởi ${message.author.username}`)
             )
         }
-
-
     }
 }

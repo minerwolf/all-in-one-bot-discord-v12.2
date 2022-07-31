@@ -9,7 +9,7 @@ module.exports = {
     category: '⚙️ Config',
     memberpermissions: ['MANAGE_CHANNELS'],
     cooldown: 5,
-    description: "Setup The Join to Create  in Guild",
+    description: "Cài đặt kênh Vào Để Tạo trong máy chủ",
     usage: "jointocreate",
     /** 
      * @param {Client} client 
@@ -18,12 +18,12 @@ module.exports = {
      */
     run: async (client, message, args, prefix) => {
 
-        const channel = message.guild.channels.cache.find(ch => ch.name === "🔊｜ᴊᴏɪɴ-ᴛᴏ-ᴄʀᴇᴀᴛᴇ");
+        const channel = message.guild.channels.cache.find(ch => ch.name === "🔊｜Join To Create");
 
         if (!channel) {
             message.guild.channels.create('🔊｜ᴊᴏɪɴ-ᴛᴏ-ᴄʀᴇᴀᴛᴇ', {
                 type: 'voice',
-                topic: "This Channel Used For JOIN TO CREATE and If You Delete this channel chat bot not work you need to again setup chatbot",
+                topic: "Kênh này được dùng để VÀO ĐỂ TẠO và nếu bạn xóa kênh này thì bot có thể không hoạt động và cần thiết lập lại",
                 // parent: channel.id,
                 permissionOverwrites: [
                     {
@@ -39,7 +39,7 @@ module.exports = {
                 return message.channel.send(
                      new MessageEmbed()
                 .setColor(ee.color)
-                        .setDescription(` > ** Join To Create Setup Completed Go <#${ch.id}> and Join to Create Your Voice Channel ** \n > ** Don't Change Name of Join to Create Channel Otherwise IT Will Not Work ** `)
+                        .setDescription(` > ** Kênh Vào Để Tạo đã được thiết lập hoàn tất <#${ch.id}> và vào để tạo kênh giọng nói của bạn ** \n > ** Không được đổi tên kênh này nếu có thì nó sẽ không hoạt động ** `)
                 )
             })
         }
@@ -48,7 +48,7 @@ module.exports = {
             message.channel.send(
                  new MessageEmbed()
                 .setColor(ee.color)
-                    .setDescription(`> **Chat Channel Already Setup <#${channel.id}> ** \n > ** Don't Change Name of Chat Bot Channel Otherwise Chat Will Not Work ** `)
+                    .setDescription(`> **Kênh chat đã được thiết lập <#${channel.id}> ** \n > ** Không được thay đổi tên kênh này, nếu có thì chat sẽ không hoạt động ** `)
             )
         }
 

@@ -4,7 +4,7 @@ module.exports = {
     name: 'invite',
     category: "🔰 Info",
     aliases: ['inv'],
-    description: '',
+    description: "Mời bot vào server của bạn",
     usage: '',
     /** 
      * @param {Client} client 
@@ -19,13 +19,10 @@ module.exports = {
                 .setColor('BLUE')
     
                 .setTitle("Invite & Support Link!")
-                .addField("**Invite Link**", `[Click here to invite me](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8)`)
-                .addField("**Support Server**", `[Click to join support Server](https://discord.gg/REAW5VM)`)
+                .addField("**Link mời bot**", `[Nhấn vào đây để mời tôi](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8)`)
+                .addField("**Server hỗ trợ**", `[Nhấn vào đây để tham gia máy chủ hỗ trợ](https://discord.gg/REAW5VM)`)
                 .setFooter(`Requested by ${message.author.tag}`, client.user.displayAvatarURL())
                 .setTimestamp()
-
-
         )
-
     }
 }

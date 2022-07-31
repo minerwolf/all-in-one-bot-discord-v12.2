@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_CHANNELS'],
     cooldown: 5,
-    description: 'Create and Delete Text Channels',
-    usage: '[COMMAND] + <create/delete> + <name>',
+    description: 'Tạo hoặc xóa kênh văn bản',
+    usage: '[COMMAND] + <create/delete> + <tên>',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -23,7 +23,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setTitle(`To Create and Delete Text Channel Follow Me`)
+                    .setTitle(`Để tạo hoặc xóa kênh văn bản hãy làm theo tôi`)
                     .setDescription(`> ${prefix}textchannel <create> <Name>`)
                     .addField(`> ${prefix}textchannel <delete> <#channel>`)
                     .setFooter(ee.footertext)
@@ -35,7 +35,7 @@ module.exports = {
                 return message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`Please Give Channel Name`)
+                        .setDescription(`Hãy cho tôi biết tên kênh`)
                         .setFooter(ee.footertext)
                 )
             }
@@ -61,7 +61,7 @@ module.exports = {
                 if (!channel) return message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`Please Give Channel to Delete`)
+                        .setDescription(`Hãy cho tôi biết kênh để xóa`)
                         .setFooter(ee.footertext)
                 )
 

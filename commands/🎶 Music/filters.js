@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["sk"],
   category: "🎶 Music",
   permissions: " ",
-  description: "add filter in Playing Song",
+  description: "Thêm bộ lọc vào bài hát đang phát",
   usage: "",
   /**
    * @param {Client} client
@@ -24,7 +24,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join Voice Channel To add Filter in Playing Song`
+            `Bạn cần vào kênh voice trước để thêm bộ lọc vào bài hát đang phát`
           )
         )
         .then((msg) => {
@@ -36,7 +36,7 @@ module.exports = {
       return message.channel
         .send(
            new MessageEmbed()
-                .setColor(ee.color).setDescription(`Nothing Playing In Voice Channel`)
+                .setColor(ee.color).setDescription(`Hiện đang không phát gì trong kênh voice`)
         )
         .then((msg) => {
           msg.delete({ timeout: 5000 });
@@ -51,7 +51,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+            `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
           )
         )
         .then((msg) => {
@@ -85,7 +85,6 @@ module.exports = {
     switch (args[0]) {
       case "bassboost":
         varforfilter = 0;
-
         break;
       case "3d":
         varforfilter = 1;
@@ -139,7 +138,7 @@ module.exports = {
         message.channel.send(
            new MessageEmbed()
                 .setColor(ee.color)
-            .setTitle("``Here is All Filters Which You Can add in Your Music``")
+            .setTitle("``Đây là tất cả các bộ lọc mà có thể thêm vào bài hát của bạn``")
             .setDescription(
               `
               \`"3d"\`,
@@ -157,9 +156,9 @@ module.exports = {
               \`"phaser" \`,
               \`"tremolo" \`,
               \`"earwax" \`,
-              \`clear\`   ---  removes all filters`
+              \`clear\`   ---  xóa tất cả bộ lọc`
             )
-            .setFooter(`Example: ${config.prefix}filter bassboost`)
+            .setFooter(`Ví dụ: ${config.prefix}filter bassboost`)
         );
         break;
     }
@@ -170,7 +169,7 @@ module.exports = {
     try {
       message.channel
         .send( new MessageEmbed()
- .setColor(ee.color).setAuthor("Applying: " + args[0]))
+ .setColor(ee.color).setAuthor("Đang áp dụng: " + args[0]))
         .then((msg) => {
           msg.delete({ timeout: 5000 });
         });
@@ -184,7 +183,7 @@ module.exports = {
       .send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Song Filtered By <@${message.author.id}>`
+          `Bộ lọc được đặt bởi <@${message.author.id}>`
         )
       )
       .then((msg) => {

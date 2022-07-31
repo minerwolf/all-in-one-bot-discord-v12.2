@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_NICKNAMES'],
     cooldown: 5,
-    description: 'Change Name of Any User',
+    description: 'Đặt biệt danh cho thành viên',
     usage: '[COMMAND] + [user] + [Name]',
     /** 
      * @param {Client} client 
@@ -25,7 +25,7 @@ module.exports = {
             return message.reply(
                 new MessageEmbed()
                     .setColor(ee.wrongcolor)
-                    .setDescription(`** Please Mention a User to Change Nick Name**`)
+                    .setDescription(`**Hãy nhắc tới ai đó để đổi biệt danh**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -34,7 +34,7 @@ module.exports = {
             return message.reply(
                 new MessageEmbed()
                     .setColor(ee.wrongcolor)
-                    .setDescription(`** You cant change name of User Which is Equal Your Role**`)
+                    .setDescription(`**Không thể đổi biệt danh của thành viên có vai trò bằng bạn**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -43,7 +43,7 @@ module.exports = {
             return message.reply(
                 new MessageEmbed()
                     .setColor(ee.wrongcolor)
-                    .setDescription(`** Please Provide a Nick Name**`)
+                    .setDescription(`**Hãy cho biết một biệt danh**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -52,7 +52,7 @@ module.exports = {
             return message.reply(
                 new MessageEmbed()
                     .setColor(ee.wrongcolor)
-                    .setDescription(`** Nick is Too Bigger Please Give Less Than 32 Words **`)
+                    .setDescription(`**Biệt danh quá dài, hãy cho biết một biệt danh không dài quá 32 ký tự**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -65,10 +65,10 @@ module.exports = {
                 message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setTitle(`✅ NickName Changed`)
-                        .setDescription(`✅ <@${user.id}> NickName Successfully Changed!!`)
-                        .addField(`> 🔰 Changed By <@${message.author.id}>`,true)
-                        .addField(`> OldName :- ${OldName} || > NewName :- ${nickname}`,true)
+                        .setTitle(`✅ Biệt danh đã thay đổi`)
+                        .setDescription(`✅ <@${user.id}> đã được đổi biệt danh thành công!!`)
+                        .addField(`> 🔰 Được đổi bởi <@${message.author.id}>`,true)
+                        .addField(`> Tên cũ :- ${OldName} || > Tên mới :- ${nickname}`,true)
                         .setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
                 ).then(msg => msg.delete({ timeout: 5000 }))
 

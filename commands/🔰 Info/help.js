@@ -5,7 +5,7 @@ const prefix = require("../../config/config.json").prefix;
 module.exports = {
   name: "help",
   aliases: ['h'],
-  description: "Shows all available bot commands.",
+  description: "Hiển thị tất cả lệnh của bot (tôi)",
   run: async (client, message, args) => {
 
 
@@ -25,7 +25,7 @@ module.exports = {
         const cmds = commands.map((command) => {
           let file = require(`../../commands/${dir}/${command}`);
 
-          if (!file.name) return "No command name.";
+          if (!file.name) return "Không có tên lệnh";
 
           let name = file.name.replace(".js", "");
 
@@ -36,20 +36,20 @@ module.exports = {
 
         data = {
           name: dir.toUpperCase(),
-          value: cmds.length === 0 ? "In progress." : cmds.join(" "),
+          value: cmds.length === 0 ? "Đang thực thi" : cmds.join(" "),
         };
 
         categories.push(data);
       });
 
       const embed = new MessageEmbed()
-        .setTitle("📬 Need help? Here are all of my commands:")
+        .setTitle("📬 Cần hỗ trợ? Đây là tất cả các lệnh của tôi:")
         .addFields(categories)
         .setDescription(
-          `Use \`${prefix}help\` followed by a command name to get more additional information on a command. For example: \`${prefix}help ban\`.`
+          `Dùng \`${prefix}help\` với tên của lệnh để biết thêm thông tin của lệnh đó. Ví dụ như là: \`${prefix}help ban\`.`
         )
         .setFooter(
-          `Requested by ${message.author.tag}`,
+          `Được yêu cầu bởi ${message.author.tag}`,
           message.author.displayAvatarURL({ dynamic: true })
         )
         .setTimestamp()
@@ -64,38 +64,38 @@ module.exports = {
 
       if (!command) {
         const embed = new MessageEmbed()
-          .setTitle(`Invalid command! Use \`${prefix}help\` for all of my commands!`)
+          .setTitle(`Câu lệnh không hợp lệ! Dùng \`${prefix}help\` để xem tất cả lệnh của tôi!`)
           .setColor("FF0000");
         return message.channel.send(embed);
       }
 
       const embed = new MessageEmbed()
-        .setTitle("Command Details:")
+        .setTitle("Thông tin của lệnh:")
         .addField("PREFIX:", `\`${prefix}\``)
         .addField(
           "COMMAND:",
-          command.name ? `\`${command.name}\`` : "No name for this command."
+          command.name ? `\`${command.name}\`` : "Không có tên cho câu lệnh này"
         )
         .addField(
-          "ALIASES:",
+          "BÍ DANH:",
           command.aliases
             ? `\`${command.aliases.join("` `")}\``
-            : "No aliases for this command."
+            : "Không có bí danh cho lệnh này"
         )
         .addField(
-          "USAGE:",
+          "CÁCH DÙNG:",
           command.usage
             ? `\`${prefix}${command.name} ${command.usage}\``
             : `\`${prefix}${command.name}\``
         )
         .addField(
-          "DESCRIPTION:",
+          "MÔ TẢ:",
           command.description
             ? command.description
-            : "No description for this command."
+            : "Không có mô tả cho lệnh này"
         )
         .setFooter(
-          `Requested by ${message.author.tag}`,
+          `Được yêu cầu bởi ${message.author.tag}`,
           message.author.displayAvatarURL({ dynamic: true })
         )
         .setTimestamp()

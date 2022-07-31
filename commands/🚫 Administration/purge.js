@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_MESSAGES'],
     cooldown: 5,
-    description: 'Purge 14 Dyas Old Messages in Channels',
-    usage: '[COMMAND] + [amount] <category>',
+    description: 'Xóa tin nhắn cũ hơn 14 ngày trong kênh',
+    usage: '[COMMAND] + [lượng tin nhắn] <loại>',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -20,25 +20,25 @@ module.exports = {
             let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
             const commands = [
-                `> bots\`       >  ✅ \`\`Delete messages sent by bots. (Ignore humans)\`\`\n`,
-                `> humans\`     >  ✅ \`\`Delete messages sent by humans. (Ignore bots)\`\`\n`,
-                `> embeds\`     >  ✅ \`\`Delete messages containing rich embeds\`\`'n`,
-                `> files\`      >  ✅ \`\`Delete messages containing files/images/attachments\`\`\n`,
-                `> mentions\`   >  ✅ \`\`Delete messages containing member/user/channel/role mentions\`\`\n`,
-                `> pins\`       >  ✅ \`\`Delete messages which are pinned\`\`\n`,
-                `> text\`       >  ✅ \`\`Delete messages containing only text. (Ignores files/images/attachments, embeds)\`\`\n`,
-                `> match\`      >  ✅ \`\`<text> - Delete messages containing text\`\`\n`,
-                `> not\`        >  ✅ \`\`<text> - Delete messages not containing text\`\`\n`,
-                `> startswith\` >  ✅ \`\`<text> - Delete messages starts with text\`\`\n`,
-                `> endswith\`   >  ✅ \`\`<text> - Delete messages ends with text\`\`\n`
+                `> bots\`       >  ✅ \`\`Xóa tin nhắn được gửi bởi bot (bỏ qua con người)\`\`\n`,
+                `> humans\`     >  ✅ \`\`Xóa tin nhắn được gửi bởi con người (bỏ qua bot)\`\`\n`,
+                `> embeds\`     >  ✅ \`\`Xóa tin nhắn có chứa mã nhúng\`\`'n`,
+                `> files\`      >  ✅ \`\`Xóa tin nhắn chứa tệp/ảnh/đính kèm\`\`\n`,
+                `> mentions\`   >  ✅ \`\`Xóa tin nhắn chứa nhắc tới người dùng/thành viên/vai trò/kênh\`\`\n`,
+                `> pins\`       >  ✅ \`\`Xóa tin nhắn đã được ghim\`\`\n`,
+                `> text\`       >  ✅ \`\`Xóa tin nhắn chứa chữ (bỏ qua tệp/ảnh/đính kèm/mã nhúng...)\`\`\n`,
+                `> match\`      >  ✅ \`\`<text> - Xóa tin nhắn chứa chữ với\`\`\n`,
+                `> not\`        >  ✅ \`\`<text> - Xóa tin nhắn không chứa chữ với\`\`\n`,
+                `> startswith\` >  ✅ \`\`<text> - Xóa tin nhắn bắt đầu với\`\`\n`,
+                `> endswith\`   >  ✅ \`\`<text> - Xóa tin nhắn kết thúc với\`\`\n`
             ]
 
             let delembed = new MessageEmbed()
                 .setColor(ee.color)
                 .setTitle(`\`\` **PURGE | CLEAR | DELETE | PRUNE** \`\``)
                 .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
-                .addField(`**You can delete a Number of Messages in Channel**`)
-                .setDescription(`> Usage :- \`${prefix}purge <amount>\` - Delete a number of messages.\n\`${prefix}purge <amount>  ${commands.join(`\n\`${prefix}purge <amount>  `)}`)
+                .addField(`**Bạn có thể xóa một số lượng tin nhắn nhất định trong kênh**`)
+                .setDescription(`> Cách dùng:- \`${prefix}purge <amount>\` - Xóa một số lượng tin nhắn.\n\`${prefix}purge <amount>  ${commands.join(`\n\`${prefix}purge <amount>  `)}`)
                 .setFooter(`${prefix}purge, ${prefix}clear, ${prefix}delete, ${prefix}prune`)
 
 
@@ -47,13 +47,13 @@ module.exports = {
             if (isNaN(amount) || !Number.isInteger(amount)) return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`Please Enter A Delete Amount Between 1 - 99`)
+                    .setDescription(`Hãy nhập số lượng tin nhắn cần xóa trong khoảng từ 1 đến 99`)
                     .setFooter(ee.footertext)
             )
             if (!amount || amount < 2 || amount > 100) return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`Please Enter A Delete Amount Between 1 - 99`)
+                    .setDescription(`Hãy nhập số lượng tin nhắn cần xóa trong khoảng từ 1 đến 99`)
                     .setFooter(ee.footertext)
             )
             if (!args[1]) {
@@ -64,7 +64,7 @@ module.exports = {
 
                         let embed = new MessageEmbed()
                             .setColor(ee.color)
-                            .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                            .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                             .setFooter(ee.footertext)
 
                         message.channel.send(embed).then(msg => msg.delete({ timeout: 4000 }));
@@ -94,7 +94,7 @@ module.exports = {
 
                                 botsdel = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(botsdel).then(msg => msg.delete({ timeout: 5000 }));
@@ -121,7 +121,7 @@ module.exports = {
 
                                 humanembed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(humanembed).then(msg => msg.delete({ timeout: 5000 }));
@@ -148,7 +148,7 @@ module.exports = {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -175,7 +175,7 @@ module.exports = {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -201,7 +201,7 @@ module.exports = {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -228,7 +228,7 @@ module.exports = {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -255,7 +255,7 @@ module.exports = {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -279,12 +279,11 @@ module.exports = {
 
                         try {
 
-
                             await message.channel.bulkDelete(data.length ? data : 1, true).then(async (m) => {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.footertext)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -312,7 +311,7 @@ module.exports = {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -340,7 +339,7 @@ module.exports = {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -368,7 +367,7 @@ module.exports = {
 
                                 embed = new MessageEmbed()
                                     .setColor(ee.color)
-                                    .setDescription(`✅  Cleared **${m.size}**/**${amount}** messages!`)
+                                    .setDescription(`✅ Đã xóa **${m.size}**/**${amount}** tin nhắn!`)
                                     .setFooter(ee.footertext)
 
                                 message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
@@ -386,7 +385,7 @@ module.exports = {
                         message.channel.send(
                             new MessageEmbed()
                                 .setColor(ee.wrongcolor)
-                                .setDescription(`You cant Delete Message Older Than 14 Dyas `)
+                                .setDescription(`**Bạn không thể xóa tin nhắn cũ hơn 14 ngày**`)
                                 .setFooter(ee.footertext)
                         )
                         break;
@@ -396,7 +395,7 @@ module.exports = {
                 return message.channel.send(
                     new MessageEmbed()
                         .setColor(ee.wrongcolor)
-                        .setDescription(`You cant Delete Message Older Than 14 Dyas `)
+                        .setDescription(`**Bạn không thể xóa tin nhắn cũ hơn 14 ngày**`)
                         .setFooter(ee.footertext)
                 )
             }
@@ -409,6 +408,5 @@ module.exports = {
                     .setFooter(ee.footertext)
             )
         }
-
     }
 }

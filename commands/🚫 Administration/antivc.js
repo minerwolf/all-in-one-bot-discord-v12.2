@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_CHANNELS'],
     cooldown: 5,
-    description: 'Prevent a user From Voice Channel',
+    description: 'Chống người dùng vào kênh voice',
     usage: '[COMMAND] + [user]',
     /** 
      * @param {Client} client 
@@ -22,14 +22,14 @@ module.exports = {
         if (!voicemember) return message.reply(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`Please Mention a User`)
+                .setDescription(`Hãy nhắc đến ai đó`)
                 .setFooter(ee.footertext)
         )
 
         if (voicemember.id === message.author.id) return message.reply(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`Noob You cant DO Anti-VC Yourself 🤣🥱🥱`)
+                .setDescription(`Bạn không thể chống kênh voice từ chính mình 🤣🥱🥱`)
                 .setFooter(ee.footertext)
         )
 
@@ -37,7 +37,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`You Cant do anti-vc This User , This User have Highest/Equal Role Than You`)
+                    .setDescription(`Không thể chống vào kênh voice của người dùng này. Thành viên có vai trò cao hơn hoặc bằng bạn`)
                     .setFooter(ee.footertext)
             )
         }
@@ -48,7 +48,7 @@ module.exports = {
                 message.author.send(
                     new MessageEmbed()
                         .setColor(ee.color)
-                        .setDescription(`ANTI-VC Role not Found | Let Me Create My MySelf , hehe`)
+                        .setDescription(`Vai trò Anti-VC không được tìm thấy! Để tui tạo vậy, hế hế`)
                         .setFooter(ee.footertext)
                 )
 
@@ -65,7 +65,7 @@ module.exports = {
                             CONNECT: false
                         })
                     })
-                message.channel.send(`${(await newrole).name} Created`)
+                message.channel.send(`${(await newrole).name} đã được tạo`)
             } catch (e) {
                 message.channel.send(
                     new MessageEmbed()
@@ -80,7 +80,7 @@ module.exports = {
         message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`@<${voicemember.id}> is Now Cant Join Voice Channels`)
+                .setDescription(`@<${voicemember.id}> bây giờ không thể vào kênh voice nào!`)
                 .setFooter(ee.footertext)
         )
     }

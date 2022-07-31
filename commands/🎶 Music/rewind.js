@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["rw"],
   category: "🎶 Music",
   permissions: " ",
-  description: "Rewind Playing Song",
+  description: "Tua lại bài hát đang phát",
   usage: "",
   /**
    * @param {Client} client
@@ -23,7 +23,7 @@ module.exports = {
       return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Please Join Voice Channel To Rewind Song`
+          `Bạn cần vào kênh voice để tua bài hát`
         )
       ).then((msg) => {
         msg.delete({timeout : 5000})
@@ -33,7 +33,7 @@ module.exports = {
     if (!message.guild.me.voice.channel)
       return message.channel.send(
          new MessageEmbed()
-                .setColor(ee.color).setDescription(`Nothing Playing In Voice Channel`)
+                .setColor(ee.color).setDescription(`Hiện tại đang không phát gì trong kênh voice`)
       ).then((msg) => {
         msg.delete({timeout : 5000})
     })
@@ -46,7 +46,7 @@ module.exports = {
       return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+          `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
         )
       ).then((msg) => {
         msg.delete({timeout : 5000})
@@ -64,7 +64,7 @@ module.exports = {
     message.channel.send(
        new MessageEmbed()
                 .setColor(ee.color).setDescription(
-        `Song Rewinded to ${Number(args[0])} Seconds \n By <@${message.author.id}>`
+        `Bài hát được tua lại ${Number(args[0])} giây \n bởi <@${message.author.id}>`
       )
     ).then((msg) => {
         msg.delete({timeout : 5000})

@@ -1,10 +1,10 @@
 {
-  "token": "Bot_TOKEN",
-  "prefix": "!",
+  "token": "OTU3NDQyODQ0ODQxMzUzMjY2.GLFeV5.oUMak0ApUZ5zTQ3lIhwELXIax_FGNnQJZuvuBU",
+  "prefix": "-",
   "ownerIDS": [
-    "882481863661342770"
+    "795522270151180319"
   ],
-  "mongo": "MONGO_DB_URL",
+  "mongo": "mongodb+srv://mrextinctcodes:mrextinctcodes@cluster0.eziesvo.mongodb.net/?retryWrites=true&w=majority",
   "everyoneMention": false,
   "hostedBy": true,
   "customFilters": {

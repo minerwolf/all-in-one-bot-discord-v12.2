@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_ROLES'],
     cooldown: 5,
-    description: 'Add role a user',
+    description: 'Thêm vai trò vào người dùng',
     usage: 'addrole + <@user> + <@role>',
     /** 
      * @param {Client} client 
@@ -24,8 +24,8 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setTitle(`**Please Mention a User to Give role**`)
-                    .setDescription(`> Usage =  ${prefix}addrole + <@user> + <@role>`)
+                    .setTitle(`**Hãy nhắc tới ai đó để thêm vai trò**`)
+                    .setDescription(`> Cách dùng =  ${prefix}addrole + <@user> + <@role>`)
                     .setFooter(ee.footertext)
             )
         }
@@ -35,7 +35,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Your Role is Not High To Give Role this User`)
+                    .setDescription(`** Vai trò của bạn chưa đủ cao để thêm vai trò cho người này **`)
                     .setFooter(ee.footertext)
             )
         }
@@ -47,7 +47,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`**Please Mention a Role **`)
+                    .setDescription(`** Hãy nhắn tới vai trò nào đó **`)
                     .setFooter(ee.footertext)
             )
         }
@@ -56,7 +56,7 @@ module.exports = {
         //     return message.channel.send(
         //         new MessageEmbed()
         //             .setColor(ee.color)
-        //             .setDescription(`** Cannot add That Role to This User **`)
+        //             .setDescription(`** Không thể thêm vai trò này cho người dùng được nhắc tới **`)
         //     )
         // }
 
@@ -65,10 +65,9 @@ module.exports = {
         // if (message.guild.me.roles.highest.comparePositionTo(role) <= 0) {
         //     new MessageEmbed()
         //         .setColor(ee.colour)
-        //         .setDescription(`**Role Is Currently Higher Than Me Therefore Cannot Add It To The User!**`)
+        //         .setDescription(`** Vai trò được nhắc tới hiện tai đang ở vị trí cao hơn tôi nên tôi không thể thêm vào thành viên này! **`)
         //         .setFooter(ee.footertext)
         // }
-
 
         // add role to user
         if (!member.roles.cache.has(role.id)) {
@@ -76,11 +75,9 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`${role} Role Has Been Added to <@${member.user.id}>`)
-                    .setFooter(`Role added by ${message.author.username}`)
+                    .setDescription(`${role} Vai trò đã được thêm vào <@${member.user.id}>`)
+                    .setFooter(`Vai trò được thêm bởi ${message.author.username}`)
             )
         }
-
-
     }
 }

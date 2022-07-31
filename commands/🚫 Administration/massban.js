@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['BAN_MEMBERS'],
     cooldown: 5,
-    description: 'Ban Multiple Users at Same time',
+    description: 'Cấm nhiều hơn 1 người ở cùng 1 thời điểm',
     usage: 'massban + <@users> + <reason>',
     /** 
      * @param {Client} client 
@@ -25,8 +25,8 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setTitle(`**Please Mention a User to Ban**`)
-                    .setDescription(`> Usage =  ${prefix}ban + <@user> + <reason>`)
+                    .setTitle(`**Hãy nhắc tới ai đó để cấm**`)
+                    .setDescription(`> Cách dùng =  ${prefix}massban + <@thành viên> + <lý do>`)
                     .setFooter(ee.footertext)
             )
         }
@@ -36,7 +36,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Your Role is Not High To Ban this User`)
+                    .setDescription(`**Vai trò của bạn chưa đủ cao để cấm những người này**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -46,7 +46,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`**Please Give Reason **`)
+                    .setDescription(`**Hãy cho tôi biết lý do cấm**`)
                     .setFooter(ee.footertext)
             )
         }
@@ -55,7 +55,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Cannot Ban This User **`)
+                    .setDescription(`**Không thể cấm thành viên này**`)
             )
         }
 
@@ -69,9 +69,8 @@ module.exports = {
         message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`All Mentioned Users ✅ Successful Banned ${member.map(m => `**<@${m.user.id}>**`).join(", ")} | ${reason}`)
+                .setDescription(`Tất cả thành viên được nhắc tới ✅ đã bị cấm! ${member.map(m => `**<@${m.user.id}>**`).join(", ")} | ${reason}`)
                 .setFooter(ee.footertext)
         )
-
     }
 }

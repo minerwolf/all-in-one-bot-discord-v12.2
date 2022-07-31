@@ -10,7 +10,7 @@ module.exports = {
     category: '🔰 Info',
     memberpermissions: [],
     cooldown: 5,
-    description: 'Show Information Of Server',
+    description: 'HIển thị thông tin của máy chủ',
     usage: 'serverinfo',
     /** 
      * @param {Client} client 
@@ -24,7 +24,7 @@ module.exports = {
                     const len = arr.array().length - maxLen;
                     arr = arr.array().sort((a, b) => b.rawPosition - a.rawPosition).slice(0, maxLen);
                     arr.map(role => `<@&${role.id}>`)
-                    arr.push(`${len} more...`);
+                    arr.push(`${len} nữa...`);
                 }
                 return arr.join(", ");
             }
@@ -33,7 +33,7 @@ module.exports = {
                 if (arr.length > maxLen) {
                     const len = arr.length - maxLen;
                     arr = arr.slice(0, maxLen);
-                    arr.push(`${len} more...`);
+                    arr.push(`${len} nữa...`);
                 }
                 return arr.join(", ");
             }
@@ -78,10 +78,10 @@ module.exports = {
 
             let afkChannel = message.guild.afkChannel
                 ? message.guild.afkChannel
-                : "None";
+                : "Không có";
             let guildDescription = message.guild.description
                 ? message.guild.description
-                : "None";
+                : "Không có";
 
 
             let boosts = message.guild.premiumSubscriptionCount;
@@ -95,29 +95,29 @@ module.exports = {
             if (boosts >= 30) maxbitrate = 384000;
             message.channel.send(new MessageEmbed()
                 .setColor(ee.color)
-                .setAuthor("Server Information About: " + message.guild.name, message.guild.iconURL({
+                .setAuthor("Thông tin của server: " + message.guild.name, message.guild.iconURL({
                     dynamic: true
                 }))
-                .addField("❱ Owner", `${message.guild.owner.user}\n\`${message.guild.owner.user.tag}\``, true)
-                .addField("❱ Guild Country", "\`" + guildRegion, true)
-                .addField("❱ Guild Description", "\`" + guildDescription, true)
-                .addField("❱ AFK Channel", "\`" + afkChannel, true)
-                .addField("❱ Created On", "\`" + moment(message.guild.createdTimestamp).format("DD/MM/YYYY") + "\`\n" + "`" + moment(message.guild.createdTimestamp).format("hh:mm:ss") + "`", true)
-                .addField("❱ You Joined", "\`" + moment(message.member.joinedTimestamp).format("DD/MM/YYYY") + "\`\n" + "`" + moment(message.member.joinedTimestamp).format("hh:mm:ss") + "`", true)
-                .addField("❱ All Channels", "👁‍🗨 \`" + message.guild.channels.cache.size + "\`", true)
-                .addField("❱ Text Channels", "💬 \`" + message.guild.channels.cache.filter(channel => channel.type == "text").size + "\`", true)
-                .addField("❱ Voice Channels", "🔈 \`" + message.guild.channels.cache.filter(channel => channel.type == "voice").size + "\`", true)
+                .addField("❱ Chủ nhân", `${message.guild.owner.user}\n\`${message.guild.owner.user.tag}\``, true)
+                .addField("❱ Máy chủ ở nước", "\`" + guildRegion, true)
+                .addField("❱ Mô tả máy chủ", "\`" + guildDescription, true)
+                .addField("❱ Kênh AFK", "\`" + afkChannel, true)
+                .addField("❱ Được tạo vào", "\`" + moment(message.guild.createdTimestamp).format("DD/MM/YYYY") + "\`\n" + "`" + moment(message.guild.createdTimestamp).format("hh:mm:ss") + "`", true)
+                .addField("❱ Bạn tham gia vào", "\`" + moment(message.member.joinedTimestamp).format("DD/MM/YYYY") + "\`\n" + "`" + moment(message.member.joinedTimestamp).format("hh:mm:ss") + "`", true)
+                .addField("❱ Tất cả các kênh", "👁‍🗨 \`" + message.guild.channels.cache.size + "\`", true)
+                .addField("❱ Kênh văn bản", "💬 \`" + message.guild.channels.cache.filter(channel => channel.type == "text").size + "\`", true)
+                .addField("❱ Kênh voice", "🔈 \`" + message.guild.channels.cache.filter(channel => channel.type == "voice").size + "\`", true)
 
-                .addField("❱ Total USERS", "😀 \`" + message.guild.memberCount + "\`", true)
-                .addField("❱ Total HUMANS", "👤 \`" + message.guild.members.cache.filter(member => !member.user.bot).size + "\`", true)
-                .addField("❱ Total BOTS", "🤖 \`" + message.guild.members.cache.filter(member => member.user.bot).size + "\`", true)
+                .addField("❱ Tổng số thành viên", "😀 \`" + message.guild.memberCount + "\`", true)
+                .addField("❱ Tổng số con người", "👤 \`" + message.guild.members.cache.filter(member => !member.user.bot).size + "\`", true)
+                .addField("❱ Tổng số bots", "🤖 \`" + message.guild.members.cache.filter(member => member.user.bot).size + "\`", true)
 
-                .addField("❱ ONLINE", "🟢 \`" + message.guild.members.cache.filter(member => member.presence.status != "offline").size + "\`", true)
-                .addField("❱ OFFLINE", ":black_circle:\`" + message.guild.members.cache.filter(member => member.presence.status == "offline").size + "\`", true)
+                .addField("❱ Trực tuyến", "🟢 \`" + message.guild.members.cache.filter(member => member.presence.status != "offline").size + "\`", true)
+                .addField("❱ Ngoại tuyến", ":black_circle:\`" + message.guild.members.cache.filter(member => member.presence.status == "offline").size + "\`", true)
 
-                .addField("❱ Total Boosts", "\`" + message.guild.premiumSubscriptionCount + "\`", true)
-                .addField("❱ Boost-Level", "\`" + boostlevel + "\`", true)
-                .addField("❱ Max-Talk-Bitrate", "👾 \`" + maxbitrate + " kbps\`", true)
+                .addField("❱ Tổng số Nâng cấp", "\`" + message.guild.premiumSubscriptionCount + "\`", true)
+                .addField("❱ Nâng cấp bậc", "\`" + boostlevel + "\`", true)
+                .addField("❱ Bitrate cao nhất cho phép", "👾 \`" + maxbitrate + " kbps\`", true)
 
                 .addField(`❱ [${message.guild.emojis.cache.size}] Emojis: `, "> " + message.guild.emojis.cache.size < 20 ? message.guild.emojis.cache.map(emoji => `${emoji}`).join(", ") : message.guild.emojis.cache.size > 20 ? emojitrimarray(message.guild.emojis.cache.map(emoji => `${emoji}`)).substr(0, 1024) : 'No Emojis')
                 .addField(`❱ [${message.guild.roles.cache.size}] Roles: `, "> " + message.guild.roles.cache.size < 25 ? message.guild.roles.cache.array().sort((a, b) => b.rawPosition - a.rawPosition).map(role => `<@&${role.id}>`).join(', ') : message.guild.roles.cache.size > 25 ? trimArray(message.guild.roles.cache) : 'None')

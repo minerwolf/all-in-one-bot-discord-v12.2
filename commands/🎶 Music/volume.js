@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["s"],
   category: "🎶 Music",
   permissions: " ",
-  description: "Manage Volume Of Playing Song",
+  description: "Chỉnh âm lượng của bài hát đang phát",
   usage: "",
   /**
    * @param {Client} client
@@ -24,7 +24,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join Voice Channel To Skip Song`
+            `Bạn cần vào kênh voice trước để chỉnh/quản lý âm lượng`
           )
         )
         .then((msg) => {
@@ -36,7 +36,7 @@ module.exports = {
       return message.channel
         .send(
            new MessageEmbed()
-                .setColor(ee.color).setDescription(`Nothing Playing In Voice Channel`)
+                .setColor(ee.color).setDescription(`Hiện đang không phát gì trong kênh voice`)
         )
         .then((msg) => {
           msg.delete({ timeout: 5000 });
@@ -51,7 +51,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+            `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
           )
         )
         .then((msg) => {
@@ -63,7 +63,7 @@ module.exports = {
          new MessageEmbed()
                 .setColor(ee.color)
         .setDescription(
-          `Please Enter Valid Volume Number , The Number Must Between 0 to 1000`
+          `Hãy nhập một số hợp lê, số đó cần nằm trong khoảng từ 0 đến 100`
         )
       );
 
@@ -74,7 +74,7 @@ module.exports = {
          new MessageEmbed()
                 .setColor(ee.color)
         .setDescription(
-          `Song Volume Increased ${args[0]}% By <@${message.author.id}>`
+          `Đã tăng âm lượng bài hát ${args[0]}% bởi <@${message.author.id}>`
         )
       )
       .then((msg) => {

@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["pu",'break'],
   category: "🎶 Music",
   permissions: " ",
-  description: "Pause Playing Song",
+  description: "Tạm dừng bài hát đang phát",
   usage: "",
   /**
    * @param {Client} client
@@ -23,7 +23,7 @@ module.exports = {
       return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Please Join Voice Channel To Pause Song`
+          `Bạn cần vào kênh voice trước để tạm dừng bài hát`
         )
       ).then((msg) => {
         msg.delete({timeout : 5000})
@@ -46,7 +46,7 @@ module.exports = {
       return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+          `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
         )
       ).then((msg) => {
         msg.delete({timeout : 5000})
@@ -56,14 +56,14 @@ module.exports = {
     if (distube.isPaused(message))  return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color)
-        .setDescription(`Song Already Paushed....`)
+        .setDescription(`Bài hát đã được tạm dừng rồi....`)
     )
     distube.pause(message);
 
     message.channel.send(
        new MessageEmbed()
                 .setColor(ee.color).setDescription(
-        `Song Paushed By <@${message.author.id}>`
+        `Bài hát được tạm dừng bởi <@${message.author.id}>`
       )
     ).then((msg) => {
         msg.delete({timeout : 5000})

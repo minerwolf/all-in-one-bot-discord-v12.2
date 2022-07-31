@@ -9,7 +9,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_CHANNELS'],
     cooldown: 5,
-    description: "Start a timed lockdown in a channel",
+    description: "Bắt đầu khóa kênh trong 1 thời gian nhất định",
     usage: "timelock <time>",
     /** 
      * @param {Client} client 
@@ -22,7 +22,7 @@ module.exports = {
             return message.channel.send(
                  new MessageEmbed()
                 .setColor(ee.color)
-                    .setDescription("Enter a valid time period in `Seconds`, `Minutes` or `Hours`")
+                    .setDescription("Nhập một thời gian hợp lệ trong Giây/Phút/Giờ")
             );
         }
         message.channel.overwritePermissions([
@@ -35,7 +35,7 @@ module.exports = {
  .setColor(ee.color)
             .setTitle("Channel Updates")
             .setDescription(
-                `${message.channel} has been placed under lockdown for \`${time}\``
+                `${message.channel} đã được khóa trong \`${time}\``
             )
         message.channel.send(embed);
 
@@ -49,7 +49,7 @@ module.exports = {
             const embed2 =  new MessageEmbed()
  .setColor(ee.color)
                 .setTitle("Channel Updates")
-                .setDescription(`Locked has been lifted in ${message.channel}`)
+                .setDescription(`Chế độ khóa đã được dỡ bỏ trong ${message.channel}`)
             message.channel.send(embed2);
         }, ms(time));
     }

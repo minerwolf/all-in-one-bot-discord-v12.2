@@ -6,7 +6,7 @@ module.exports = {
   category: "🔰 Info",
   aliases: ['api'],
   cooldown: 5,
-  description: 'Get Bot Ping..',
+  description: 'Kiểm tra ping của bot',
   usage: 'ping',
   memberpermissions: [" "],
   /** 

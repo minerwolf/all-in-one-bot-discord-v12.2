@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["r",'rsu'],
   category: "🎶 Music",
   permissions: " ",
-  description: "Resume Paushed Song",
+  description: "Tiếp tục bài hát đang tạm dừng",
   usage: "",
   /**
    * @param {Client} client
@@ -23,7 +23,7 @@ module.exports = {
       return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Please Join Voice Channel To Resume Song`
+          `Bạn cần vào kênh voice để tiếp tục bài hát`
         )
       ).then((msg) => {
         msg.delete({timeout : 5000})
@@ -33,7 +33,7 @@ module.exports = {
     if (!message.guild.me.voice.channel)
       return message.channel.send(
          new MessageEmbed()
-                .setColor(ee.color).setDescription(`Nothing Playing In Voice Channel`)
+                .setColor(ee.color).setDescription(`Hiện tại đang không phát gì trong kênh voice`)
       ).then((msg) => {
         msg.delete({timeout : 5000})
     })
@@ -46,7 +46,7 @@ module.exports = {
       return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+          `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
         )
       ).then((msg) => {
         msg.delete({timeout : 5000})
@@ -56,14 +56,14 @@ module.exports = {
     if (distube.isPlaying(message))  return message.channel.send(
          new MessageEmbed()
                 .setColor(ee.color)
-        .setDescription(`Song Already Resumed....`)
+        .setDescription(`Bài hát đã được tiếp tục rồi....`)
     )
     distube.resume(message);
 
     message.channel.send(
        new MessageEmbed()
                 .setColor(ee.color).setDescription(
-        `Song Resumed By <@${message.author.id}>`
+        `Bài hát được tiếp tục bởi <@${message.author.id}>`
       )
     ).then((msg) => {
         msg.delete({timeout : 5000})

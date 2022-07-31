@@ -9,7 +9,7 @@ module.exports = {
     aliases: ['mafkiya'],
     category: '🚫 Administration',
     memberpermissions: ['MUTE_MEMBERS'],
-    description: 'unmute a User!',
+    description: 'Bỏ tắt tiếng người dùng!',
     useage: 'unmute @User [REASON]',
     /** 
      * @param {Client} client 
@@ -21,7 +21,7 @@ module.exports = {
         if (!member) return message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription("** Please Mention a User Usage: `unmute @User reason`**")
+                .setDescription("**Hãy nhắc tới ai đó. Cách dùng: `unmute @thành viên lý do`**")
                 .setFooter(ee.footertext)
         )
         args.shift(); //shift args
@@ -30,7 +30,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription("** I Cannot Mute This Member , because He/She is Equal To Your Role **")
+                    .setDescription("**Tôi không thể bỏ tắt tiếng thành viên này bởi người đó có vai trò bằng hoặc cao hơn bạn!**")
                     .setFooter(ee.footertext)
             )
         }
@@ -39,7 +39,7 @@ module.exports = {
 
         let mutedrole = false;
         for (let i = 0; i < allguildroles.length; i++) {
-            if (allguildroles[i].name.toLowerCase().includes("muted")) {
+            if (allguildroles[i].name.toLowerCase().includes("Muted")) {
                 mutedrole = allguildroles[i];
                 break;
             }
@@ -48,7 +48,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription("** Mute Role Not Found **")
+                    .setDescription("**Không phát hiện vai trò tắt tiếng**")
                     .setFooter(ee.footertext)
             )
         }
@@ -56,7 +56,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription("** I cannot access the Role, because it's above me!**")
+                    .setDescription("**Tôi không thể truy cập vai trò bởi vì nó ở vị trí cao hơn tôi!**")
                     .setFooter(ee.footertext)
             )
         }
@@ -67,7 +67,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription("** Please Give Reason to Unmute User **")
+                    .setDescription("**Hãy cho biết lý do để bỏ tắt tiếng người dùng này**")
                     .setFooter(ee.footertext)
             )
         }
@@ -77,7 +77,7 @@ module.exports = {
             if (!data) return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription("** You never muted someone, Muted Role Not Exist**")
+                    .setDescription("**Bạn chưa bao giờ tắt tiếng ai, vai trò tắt tiếng không tồn tại**")
                     .setFooter(ee.footertext)
             )
             const user = data.Users.findIndex((prop) => prop === member.id)
@@ -85,7 +85,7 @@ module.exports = {
                 new MessageEmbed()
                     .setColor(ee.color)
                     .setAuthor(message.author.tag)
-                    .setDescription("** You never muted someone, Muted Role Not Exist**")
+                    .setDescription("**Bạn chưa bao giờ tắt tiếng ai, vai trò tắt tiếng không tồn tại**")
                     .setFooter(ee.footertext)
             )
             data.Users.splice(user, 1)
@@ -96,7 +96,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription("**Something went wrong!**")
+                    .setDescription("**Đã có lỗi xảy ra!**")
                     .setFooter(ee.footertext)
             )
         }
@@ -104,11 +104,11 @@ module.exports = {
         message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`> <@${member.user.id}> Unmuted \n\n > Reason = \`\`${reason}\`\``)
-                .setFooter(`Unmuted By ${message.author.username}`)
+                .setDescription(`> <@${member.user.id}> đã được bỏ tắt tiếng \n\n > Lý do = \`\`${reason}\`\``)
+                .setFooter(`Được bỏ tắt tiếng bởi ${message.author.username}`)
         )
         try {
-            member.send(embed.setTitle(`You got unmuted by: \`${message.author.tag}\``))
+            member.send(embed.setTitle(`Bạn được bỏ tắt tiếng bởi: \`${message.author.tag}\``))
         } catch {
         }
     }

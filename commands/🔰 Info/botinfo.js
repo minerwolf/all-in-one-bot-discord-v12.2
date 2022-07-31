@@ -4,18 +4,18 @@ var config = require('../../config/config.json');
 const moment = require("moment")
 
 const flags = {
-    DISCORD_EMPLOYEE: 'Discord Employee',
-    DISCORD_PARTNER: 'Discord Partner',
-    BUGHUNTER_LEVEL_1: 'Bug Hunter (Level 1)',
-    BUGHUNTER_LEVEL_2: 'Bug Hunter (Level 2)',
-    HYPESQUAD_EVENTS: 'HypeSquad Events',
-    HOUSE_BRAVERY: 'House of Bravery',
-    HOUSE_BRILLIANCE: 'House of Brilliance',
-    HOUSE_BALANCE: 'House of Balance',
-    EARLY_SUPPORTER: 'Early Supporter',
-    SYSTEM: 'System',
-    VERIFIED_BOT: 'Verified Bot',
-    VERIFIED_DEVELOPER: 'Verified Bot Developer'
+    DISCORD_EMPLOYEE: 'Nhân viên Discord',
+    DISCORD_PARTNER: 'Nhân viên Discord',
+    BUGHUNTER_LEVEL_1: 'Người truy tìm Bug (cấp độ 1)',
+    BUGHUNTER_LEVEL_2: 'Người truy tìm Bug (cấp độ 2)',
+    HYPESQUAD_EVENTS: 'Sự kiện HypeSquad',
+    HOUSE_BRAVERY: 'House of Bravery (gan dạ)',
+    HOUSE_BRILLIANCE: 'House of Brilliance (rực rỡ)',
+    HOUSE_BALANCE: 'House of Balance (thăng bằng)',
+    EARLY_SUPPORTER: 'Người hỗ trợ sớm',
+    SYSTEM: 'Hệ thống',
+    VERIFIED_BOT: 'Bot đã được xác minh',
+    VERIFIED_DEVELOPER: 'Người tạo Bot đã được xác nhận'
 };
 function trimArray(arr, maxLen = 25) {
     if (arr.array().length > maxLen) {
@@ -40,7 +40,7 @@ module.exports = {
     category: '🔰 Info',
     memberpermissions: [],
     cooldown: 5,
-    description: 'Show Information Of bot',
+    description: 'Hiển thị thông tin của bot',
     usage: 'botinfo [@bot] [global]',
     /** 
      * @param {Client} client 
@@ -51,19 +51,19 @@ module.exports = {
         try {
             var bot = message.mentions.users.first() || message.author.bot;
 
-            if (!bot || bot == null || bot.id == null || !bot.id) return message.reply("bot Not Found");
+            if (!bot || bot == null || bot.id == null || !bot.id) return message.reply("Không tìm thấy bot!!!");
 
             const member = message.guild.members.cache.get(bot.id);
             //create the EMBED
             const embedbotinfo =  new MessageEmbed()
  .setColor(ee.color)
             embedbotinfo.setThumbnail(bot.displayAvatarURL({ dynamic: true, size: 512 }))
-            embedbotinfo.setAuthor("Information about:   " + bot.username + "#" + bot.discriminator ,bot.displayAvatarURL({ dynamic: true }))
-            embedbotinfo.addField('**❱ botname:**', `<@${bot.username}>\n\`${bot.tag}\``, true)
+            embedbotinfo.setAuthor("Thông tin của:   " + bot.username + "#" + bot.discriminator ,bot.displayAvatarURL({ dynamic: true }))
+            embedbotinfo.addField('**❱ tên bot:**', `<@${bot.username}>\n\`${bot.tag}\``, true)
             embedbotinfo.addField('**❱ ID:**', `\`${bot.id}\``, true)
-            embedbotinfo.addField('**❱ Avatar:**', `[\`Link to avatar\`](${bot.displayAvatarURL({ format: "png" })})`, true)
-            embedbotinfo.addField('**❱ Date Join DC:**', "\`" + moment(bot.createdTimestamp).format("DD/MM/YYYY") + "\`\n" + "`" + moment(bot.createdTimestamp).format("hh:mm:ss") + "\`", true)
-            embedbotinfo.addField('**❱ Is a Bot:**', `\`${bot.bot ? "✔️" : "❌"}\``, true)
+            embedbotinfo.addField('**❱ Ảnh đại diện:**', `[\`Link ảnh đại diện\`](${bot.displayAvatarURL({ format: "png" })})`, true)
+            embedbotinfo.addField('**❱ Ngày tham gia Discord:**', "\`" + moment(bot.createdTimestamp).format("DD/MM/YYYY") + "\`\n" + "`" + moment(bot.createdTimestamp).format("hh:mm:ss") + "\`", true)
+            embedbotinfo.addField('**❱ Có là bot không:**', `\`${bot.bot ? "✔️" : "❌"}\``, true)
             embedbotinfo.setFooter(ee.footertext, ee.footericon)
             //send the EMBED
             message.channel.send(embedbotinfo)

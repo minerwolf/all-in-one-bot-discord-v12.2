@@ -16,7 +16,15 @@ client.on('ready', () => {
     ..............................................................................
     `
   );
-  client.user.setActivity(`${config.prefix}help || Tech Boy Gaming`)
+  client.user.setActivity(`make by 『2704』 MinerWolfYBT Vn#2279`, {type: 'PLAYING'});
+ // will set the bot's activity to 'Watching a video' with the status Do Not Disturb
+  client.user.setPresence({
+    status: 'dnd',
+    activity: {
+        name: '-help',
+        type: 'PLAYING'
+    }
+});
 })
 
 

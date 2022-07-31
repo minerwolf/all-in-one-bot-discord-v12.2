@@ -8,7 +8,7 @@ module.exports = {
     category: ' ',
     memberpermissions: [],
     cooldown: 5,
-    description: '',
+    description: "Rời bot khỏi server nào đó",
     usage: '',
     /** 
      * @param {Client} client 
@@ -20,7 +20,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription("**You Dont Have The Permissions To Use This Command! - [ADMINISTRATOR]**")
+                    .setDescription("**Bạn không có đủ quyền để dùng lệnh này! - [ADMINISTRATOR]**")
                     .setFooter(ee.footertext)
             ).then((msg => {
                 msg.delete({ timeout: 10000 })
@@ -32,7 +32,7 @@ module.exports = {
         if (!guildId) return message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription("**Please Provide an Guild ID **")
+                .setDescription("**Xin hãy cho biết ID máy chủ**")
                 .setFooter(ee.footertext)
         ).then((msg => {
             msg.delete({ timeout: 10000 })
@@ -43,7 +43,7 @@ module.exports = {
         if (!guild) return message.channel.send(
             new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription("** This Guild Not Found .. **")
+                .setDescription("** Không tìm thấy máy chủ theo ID đã được cấp .. **")
                 .setFooter(ee.footertext)
         ).then((msg => {
             msg.delete({ timeout: 10000 })
@@ -53,7 +53,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`Successfully left guild: **${guild.name}**`)
+                    .setDescription(`Đã rời khỏi máy chủ: **${guild.name}**`)
                     .setFooter(ee.footertext)
             )
         } else {

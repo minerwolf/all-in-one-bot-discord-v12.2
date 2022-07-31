@@ -9,7 +9,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_CHANNELS'],
     cooldown: 5,
-    description: "Disable lockdown in a channel",
+    description: "Mở khóa kênh",
     usage: "unlock",
     /** 
      * @param {Client} client 
@@ -25,8 +25,8 @@ module.exports = {
           ]);
         const embed =  new MessageEmbed()
  .setColor(ee.color)
-            .setTitle("Channel Updates")
-            .setDescription(`🔒 ${message.channel} has been Unlocked`)
+            .setTitle("Cập nhật về kênh")
+            .setDescription(`🔒 ${message.channel} đã được mở khóa`)
         await message.channel.send(embed).then((msg) => {
             msg.delete({timeout : 5000})
         })

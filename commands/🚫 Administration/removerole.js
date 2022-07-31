@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_ROLES'],
     cooldown: 5,
-    description: 'Remove role From a user',
+    description: 'Xóa vai trò khỏi người dùng',
     usage: 'removerole + <@user> + <@role>',
     /** 
      * @param {Client} client 
@@ -25,7 +25,7 @@ module.exports = {
                 new MessageEmbed()
                     .setColor(ee.color)
                     .setTitle(`**Please Mention a User to Remove role**`)
-                    .setDescription(`> Usage =  ${prefix}removerole + <@user> + <@role>`)
+                    .setDescription(`> Cách dùng =  ${prefix}removerole + <@thành viên> + <@vai trò>`)
                     .setFooter(ee.footertext)
             )
         }
@@ -35,7 +35,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Your Role is Not High To Remove Role this User`)
+                    .setDescription(`** Vai trò của bạn chưa đủ cao để xóa vai trò cho người này **`)
                     .setFooter(ee.footertext)
             )
         }
@@ -47,7 +47,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`**Please Mention a Role **`)
+                    .setDescription(`** Hãy nhắc tới vai trò nào đó **`)
                     .setFooter(ee.footertext)
             )
         }
@@ -56,7 +56,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Cannot Remove That Role to This User **`)
+                    .setDescription(`** Không thể xóa vai trò của người này **`)
             )
         }
 
@@ -65,10 +65,9 @@ module.exports = {
         if (message.guild.me.roles.highest.comparePositionTo(role) <= 0) {
             new MessageEmbed()
                 .setColor(ee.colour)
-                .setDescription(`**Role Is Currently Higher Than Me Therefore Cannot Remove It To The User!**`)
+                .setDescription(`**Vai trò được nhắc tới hiện tai đang ở vị trí cao hơn tôi nên tôi không thể xóa khỏi thành viên này!!**`)
                 .setFooter(ee.footertext)
         }
-
 
         // add role to user
         if (member.roles.cache.has(role.id)) {
@@ -76,11 +75,9 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`${role} Role Has Been Removed From <@${member.user.id}>`)
+                    .setDescription(`${role} đã bị xóa khỏi thành viên <@${member.user.id}>`)
                     .setFooter(`Role Removed by ${message.author.username}`)
             )
         }
-
-
     }
 }

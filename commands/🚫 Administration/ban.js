@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['BAN_MEMBERS'],
     cooldown: 5,
-    description: 'Ban a User From Guild',
-    usage: 'ban + <@user> + <reason>',
+    description: 'Cấm người dùng khỏi server',
+    usage: 'ban + <@người dùng> + <lý do>',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -23,8 +23,8 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setTitle(`**Please Mention a User to Ban**`)
-                    .setDescription(`> Usage =  ${prefix}ban + <@user> + <reason>`)
+                    .setTitle(`**Hãy nhắc tới ai đó để cấm**`)
+                    .setDescription(`> Cách dùng =  ${prefix}ban + <@người dùng> + <lý do>`)
                     .setFooter(ee.footertext)
             )
         }
@@ -34,7 +34,7 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.color)
-                    .setDescription(`** Your Role is Not High To Ban this User`)
+                    .setDescription(`** Vai trò của bạn chưa đủ cao để cấm thành viên này **`)
                     .setFooter(ee.footertext)
             )
         }
@@ -46,7 +46,7 @@ module.exports = {
             return message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`**Please Give Reason **`)
+                    .setDescription(`** Xin hãy cho biết lý do cấm **`)
                     .setFooter(ee.footertext)
             )
         }
@@ -56,12 +56,10 @@ module.exports = {
             message.channel.send(
                 new MessageEmbed()
                     .setColor(ee.colour)
-                    .setDescription(`> <@${member.user.id}> Banned From Guild \n\n > Reason = \`\`${reason}\`\``)
+                    .setDescription(`> <@${member.user.id}> đã bị cấm khỏi máy chủ \n\n > Lý do = \`\`${reason}\`\``)
                     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-                    .setFooter(`Banned by ${message.author.username}`)
+                    .setFooter(`Bị cấm bởi ${message.author.username}`)
             )
         }
-
-
     }
 }

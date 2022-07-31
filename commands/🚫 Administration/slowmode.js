@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['MANAGE_CHANNELS'],
     cooldown: 5,
-    description: 'Do Poll in Server',
-    usage: '[COMMAND] + [Channel] + [Question]',
+    description: 'Đặt chế độ chậm vào kênh văn bản',
+    usage: '[COMMAND] + [Channel]',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -17,20 +17,17 @@ module.exports = {
      */
     run: async (client, message, args, prefix) => {
 
-
         if (!isNaN(args[0]) || parseInt(args[0]) < 0) {
             let embed =  new MessageEmbed()
  .setColor(ee.color)
-                .setDescription(`✅ Slowmode Enabled in ${message.channel} on Time ${args[0]}!`)
+                .setDescription(`✅ Chế độ chậm đã được bật trong kênh ${message.channel} ở thời gian ${args[0]}!`)
             message.reply(embed)
             message.channel.setRateLimitPerUser(args[0])
         } else {
             let embed2 =  new MessageEmbed()
  .setColor(ee.color)
-                .setDescription(`Provided Argument is Not Number`)
+                .setDescription(`Đối số được cho biết không hợp lệ!`)
             message.reply(embed2)
         }
-
-
     }
 }

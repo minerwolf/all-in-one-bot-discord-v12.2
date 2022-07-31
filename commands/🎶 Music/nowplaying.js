@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["nowplay"],
     category: "🎶 Music",
     permissions: " ",
-    description: "Show Current Playing Song",
+    description: "Hiển thị bài hát đang phát",
     usage: "",
     /**
      * @param {Client} client
@@ -26,7 +26,7 @@ module.exports = {
                 .send(
                      new MessageEmbed()
                 .setColor(ee.color).setDescription(
-                        `Please Join Voice Channel To Loop Song`
+                        `Bạn cần vào kênh voice trước để xem bài hát đang phát`
                     )
                 )
                 .then((msg) => {
@@ -43,7 +43,7 @@ module.exports = {
                 .send(
                      new MessageEmbed()
                 .setColor(ee.color).setDescription(
-                        `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+                        `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
                     )
                 )
                 .then((msg) => {
@@ -56,7 +56,7 @@ module.exports = {
             .send(
                  new MessageEmbed()
                 .setColor(ee.color).setDescription(
-                    `Nothing Playing In Voice Channel To Loop`
+                    `Hiện tại đang không phát bài hát nào`
                 )
             )
             .then((msg) => {

@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Fetch all Banned User',
+    description: 'Cho danh sách những thành viên bị cấm',
     usage: '[COMMAND]',
     /** 
      * @param {Client} client 

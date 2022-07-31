@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Do Poll in Server',
-    usage: '[COMMAND] + [Channel] + [Question]',
+    description: 'Làm một cuộc bình chọn trong máy chủ',
+    usage: '[COMMAND] + [#kênh] + [câu hỏi]',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -20,22 +20,22 @@ module.exports = {
         if (!args.length) return message.channel.send(
              new MessageEmbed()
                 .setColor(ee.color)
-                .setDescription(`Usage >>> ${prefix}poll <#channel> <question>`))
+                .setDescription(`Cách dùng >>> ${prefix}poll <#kênh> <câu hỏi>`))
         if (!channel) {
             message.reply(
                  new MessageEmbed()
                 .setColor(ee.color)
-                    .setDescription("Specify A Channel To Send This Poll")
+                    .setDescription("Hãy cho biết kênh để gửi bình chọn này")
             )
             return
         } else {
             let announce = args.slice(1).join(" ")
-            if (!announce) return message.channel.send(`Please Specify What Do You Want To Announce`)
+            if (!announce) return message.channel.send(`Hãy cho tôi biết cần thông báo gì`)
             const embed =  new MessageEmbed()
  .setColor(ee.color)
-                .setTitle(`🔰Poll Time 🔰`)
+                .setTitle(`🔰Bình chọn 🔰`)
                 .setDescription(`${announce}`)
-                .setFooter("Poll started by: " + message.author.username + '#' + message.author.discriminator)
+                .setFooter("Bắt đầu bình chọn bởi: " + message.author.username + '#' + message.author.discriminator)
             let msgEmbed = await channel.send(embed)
             await msgEmbed.react('✅')
             await msgEmbed.react('❌')

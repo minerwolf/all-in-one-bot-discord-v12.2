@@ -10,7 +10,7 @@ module.exports = {
     category: '🔰 Info',
     memberpermissions: [],
     cooldown: 5,
-    description: 'Show Info Of a Role',
+    description: 'Xem thông tin của vai trò',
     usage: "roleinfo <@ROLE>",
     /** 
      * @param {Client} client 
@@ -23,23 +23,23 @@ module.exports = {
             if (!role) return message.channel.send(
                  new MessageEmbed()
                 .setColor(ee.color)
-                    .setDescription(`Role Not Found`)
+                    .setDescription(`Không tìm thấy vai trò/vai trò không hợp lệ`)
             )
 
             //create the EMBED
             const embeduserinfo =  new MessageEmbed()
  .setColor(ee.color)
             embeduserinfo.setThumbnail(message.guild.iconURL({ dynamic: true, size: 512 }))
-            embeduserinfo.setAuthor("Information about:   " + role.name, message.guild.iconURL({ dynamic: true }), "https://discord.gg/FQGXbypRf8")
-            embeduserinfo.addField('**❱ Name:**', `\`${role.name}\``, true)
+            embeduserinfo.setAuthor("Thông tin của:   " + role.name, message.guild.iconURL({ dynamic: true }), "https://discord.gg/FQGXbypRf8")
+            embeduserinfo.addField('**❱ Tên:**', `\`${role.name}\``, true)
             embeduserinfo.addField('**❱ ID:**', `\`${role.id}\``, true)
-            embeduserinfo.addField('**❱ Color:**', `\`${role.hexColor}\``, true)
-            embeduserinfo.addField('**❱ Date Created:**', "\`" + moment(role.createdAt).format("DD/MM/YYYY") + "\`\n" + "`" + moment(role.createdAt).format("hh:mm:ss") + "\`", true)
-            embeduserinfo.addField('**❱ Position:**', `\`${role.rawPosition}\``, true)
-            embeduserinfo.addField('**❱ MemberCount:**', `\`${role.members.size} Members have it\``, true)
-            embeduserinfo.addField('**❱ Hoisted:**', `\`${role.hoist ? "✔️" : "❌"}\``, true)
-            embeduserinfo.addField('**❱ Mentionable:**', `\`${role.mentionable ? "✔️" : "❌"}\``, true)
-            embeduserinfo.addField('**❱ Permissions:**', `${role.permissions.toArray().map(p => `\`${p}\``).join(", ")}`)
+            embeduserinfo.addField('**❱ Màu:**', `\`${role.hexColor}\``, true)
+            embeduserinfo.addField('**❱ Ngày tạo:**', "\`" + moment(role.createdAt).format("DD/MM/YYYY") + "\`\n" + "`" + moment(role.createdAt).format("hh:mm:ss") + "\`", true)
+            embeduserinfo.addField('**❱ Vị trí:**', `\`${role.rawPosition}\``, true)
+            embeduserinfo.addField('**❱ Số lượng thành viên:**', `\`${role.members.size} Members have it\``, true)
+            embeduserinfo.addField('**❱ Được vận hành không:**', `\`${role.hoist ? "✔️" : "❌"}\``, true)
+            embeduserinfo.addField('**❱ Có thể nhắc tới:**', `\`${role.mentionable ? "✔️" : "❌"}\``, true)
+            embeduserinfo.addField('**❱ Quyền lợi:**', `${role.permissions.toArray().map(p => `\`${p}\``).join(", ")}`)
             embeduserinfo.setFooter(ee.footertext, ee.footericon)
             //send the EMBED
             message.channel.send(embeduserinfo)
@@ -49,7 +49,6 @@ module.exports = {
                 .setColor(ee.color)
                     .setDescription(e)
             )
-
         }
     }
 }

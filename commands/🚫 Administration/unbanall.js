@@ -8,7 +8,7 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Unban all Banned Users in Guild',
+    description: 'Bỏ cấm tất cả thành viên bị cấm trong server',
     usage: '[COMMAND]',
     /** 
      * @param {Client} client 
@@ -22,7 +22,7 @@ module.exports = {
                     message.channel.send(
                         new MessageEmbed()
                             .setColor(ee.wrongcolor)
-                            .setDescription(`No Banned Users`)
+                            .setDescription(`Không có ai bị cấm`)
                             .setFooter(ee.footertext)
                     )
                 } else {
@@ -32,8 +32,8 @@ module.exports = {
                     message.channel.send(
                         new MessageEmbed()
                             .setColor(ee.color)
-                            .setDescription(`All Banned Users ✅ Successfully Unabanned..`)
-                            .addField(`🔰 Unbanned By <@${message.author.id}>`)
+                            .setDescription(`Tất cả thành viên bị cấm ✅ đã được dỡ bỏ lệnh cấm`)
+                            .addField(`🔰 Được bỏ cấm bởi <@${message.author.id}>`)
                             .setFooter(ee.footertext)
                     )
                 }

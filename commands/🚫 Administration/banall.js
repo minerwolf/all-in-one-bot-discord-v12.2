@@ -8,8 +8,8 @@ module.exports = {
     category: '🚫 Administration',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: 'Do Poll in Server',
-    usage: '[COMMAND] + [Channel] + [Question]',
+    description: 'Cấm tất cả thành viên trong máy chủ',
+    usage: 'banall',
     /** 
      * @param {Client} client 
      * @param {Message} message 
@@ -21,7 +21,6 @@ module.exports = {
 
             for (let i = 0; i < members; i++) {
                 members.ban()
-
             }
         } catch (e) {
             console.log(e);

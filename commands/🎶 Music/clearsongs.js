@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["ssg"],
   category: "🎶 Music",
   permissions: " ",
-  description: "clear All Songs",
+  description: "Xóa tất cả bài hát",
   usage: "",
   /**
    * @param {Client} client
@@ -24,7 +24,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join Voice Channel To Clear All Song`
+            `Bạn cần vào kênh voice trước để xóa tất cả bài hát`
           )
         )
         .then((msg) => {
@@ -37,7 +37,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Nothing Playing In Voice Channel To Clear`
+            `Hiện đang không phát gì trong kênh voice để xóa bài hát`
           )
         )
         .then((msg) => {
@@ -53,7 +53,7 @@ module.exports = {
         .send(
            new MessageEmbed()
                 .setColor(ee.color).setDescription(
-            `Please Join My Voice Channel ${message.guild.me.voice.channel.name}`
+            `Hãy vào kênh voice của tôi ${message.guild.me.voice.channel.name}`
           )
         )
         .then((msg) => {
@@ -68,7 +68,7 @@ module.exports = {
       .send(
          new MessageEmbed()
                 .setColor(ee.color).setDescription(
-          `Clear All The Songs By <@${message.author.id}>`
+          `Tất cả bài hát được xóa bởi <@${message.author.id}>`
         )
       )
       .then((msg) => {

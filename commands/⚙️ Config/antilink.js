@@ -10,7 +10,7 @@ module.exports = {
     category: '⚙️ Config',
     memberpermissions: ['ADMINISTRATOR'],
     cooldown: 5,
-    description: "Start lockdown in a channel",
+    description: "Bật hoặc tắt bộ chống link",
     usage: "lock",
     /** 
      * @param {Client} client 
@@ -33,14 +33,14 @@ module.exports = {
                     GuildID: message.guild.id,
                 });
 
-                message.channel.send(`Antilink is now active!`);
+                message.channel.send(`Bộ chống link hiện đang BẬT!`);
 
                 let newData = new antilink({
                     GuildID: message.guild.id,
                 });
                 newData.save();
             } else if (!data) {
-                message.channel.send(`Antilink is now active`);
+                message.channel.send(`Bộ chống link hiện đang BẬT`);
 
                 let newData = new antilink({
                     GuildID: message.guild.id,
@@ -57,9 +57,9 @@ module.exports = {
                     GuildID: message.guild.id,
                 });
 
-                return message.channel.send(`Antilink has been turned off!`);
+                return message.channel.send(`Bộ chống link đã được vô hiệu hóa!`);
             } else if (!data2) {
-                return message.channel.send(`Antilink isn't setup!`);
+                return message.channel.send(`Bộ chống link hiện đang tắt!`);
             }
         }
     }
